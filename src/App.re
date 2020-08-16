@@ -1,4 +1,4 @@
 [@react.component]
 let make = () => {
-  <> <Sidebar /> <ThemeModal /> </>;
+  <> <Sidebar /> <ThemeModal visible=false /> </>;
 };

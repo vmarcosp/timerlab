@@ -2,23 +2,67 @@
 
 import * as Css from "bs-css-emotion/src/Css.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
+import * as Belt_List from "bs-platform/lib/es6/belt_List.js";
 import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 import * as CssHelpers$Timerlab from "../../ui/CssHelpers.bs.js";
 
-var wrapper = Curry._1(Css.style, {
-      hd: Css.position(Css.fixed),
-      tl: {
-        hd: Css.background(Css.rgba(88, 63, 103, 0.68)),
-        tl: {
-          hd: CssHelpers$Timerlab.fullHeight,
-          tl: {
-            hd: CssHelpers$Timerlab.fullWidth,
-            tl: {
-              hd: Css.top(Css.zero),
+var fadeIn_0 = Css.animationName(Curry._1(Css.keyframes, {
+          hd: [
+            0,
+            {
+              hd: Css.opacity(0.0),
               tl: {
-                hd: Css.left(Css.zero),
+                hd: Css.visibility(Css.visible),
+                tl: /* [] */0
+              }
+            }
+          ],
+          tl: {
+            hd: [
+              100,
+              {
+                hd: Css.opacity(1.0),
                 tl: {
-                  hd: Css.display("flex"),
+                  hd: Css.visibility(Css.visible),
+                  tl: /* [] */0
+                }
+              }
+            ],
+            tl: /* [] */0
+          }
+        }));
+
+var fadeIn_1 = {
+  hd: Css.animationFillMode("forwards"),
+  tl: {
+    hd: Css.animationDuration(200),
+    tl: /* [] */0
+  }
+};
+
+var fadeIn = {
+  hd: fadeIn_0,
+  tl: fadeIn_1
+};
+
+function wrapper(visible) {
+  var base_0 = Css.position(Css.fixed);
+  var base_1 = {
+    hd: Css.background(Css.rgba(88, 63, 103, 0.68)),
+    tl: {
+      hd: CssHelpers$Timerlab.fullHeight,
+      tl: {
+        hd: CssHelpers$Timerlab.fullWidth,
+        tl: {
+          hd: Css.top(Css.zero),
+          tl: {
+            hd: Css.left(Css.zero),
+            tl: {
+              hd: Css.opacity(0),
+              tl: {
+                hd: Css.display("flex"),
+                tl: {
+                  hd: Css.visibility(Css.hidden),
                   tl: {
                     hd: Css.justifyContent(Css.center),
                     tl: {
@@ -32,7 +76,15 @@ var wrapper = Curry._1(Css.style, {
           }
         }
       }
-    });
+    }
+  };
+  var base = {
+    hd: base_0,
+    tl: base_1
+  };
+  var animation = visible ? fadeIn : /* [] */0;
+  return Curry._1(Css.style, Belt_List.concat(base, animation));
+}
 
 var modal = Curry._1(Css.style, {
       hd: Css.minWidth(Css.px(425)),
@@ -90,6 +142,7 @@ var footer = Curry._1(Css.style, {
     });
 
 export {
+  fadeIn ,
   wrapper ,
   modal ,
   title ,
@@ -98,4 +151,4 @@ export {
   footer ,
   
 }
-/* wrapper Not a pure module */
+/* fadeIn Not a pure module */

@@ -5,7 +5,9 @@ import * as Sidebar$Timerlab from "./components/Sidebar/Sidebar.bs.js";
 import * as ThemeModal$Timerlab from "./components/ThemeModal/ThemeModal.bs.js";
 
 function App(Props) {
-  return React.createElement(React.Fragment, undefined, React.createElement(Sidebar$Timerlab.make, {}), React.createElement(ThemeModal$Timerlab.make, {}));
+  return React.createElement(React.Fragment, undefined, React.createElement(Sidebar$Timerlab.make, {}), React.createElement(ThemeModal$Timerlab.make, {
+                  visible: false
+                }));
 }
 
 var make = App;

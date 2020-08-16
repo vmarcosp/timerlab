@@ -1,7 +1,7 @@
 [@react.component]
-let make = () => {
+let make = (~visible, ~onCancel=?) => {
   ThemeModalStyles.(
-    <Modal title="New theme">
+    <Modal ?onCancel visible title="New theme">
       <Input label="Name" />
       <div className=colors>
         <Input label="Primary color" />

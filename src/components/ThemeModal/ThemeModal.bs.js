@@ -1,16 +1,24 @@
 
 
 import * as React from "react";
+import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Input$Timerlab from "../Input/Input.bs.js";
 import * as Modal$Timerlab from "../Modal/Modal.bs.js";
 import * as Uploader$Timerlab from "../Uploader/Uploader.bs.js";
 import * as ThemeModalStyles$Timerlab from "./ThemeModalStyles.bs.js";
 
 function ThemeModal(Props) {
-  return React.createElement(Modal$Timerlab.make, {
-              children: null,
-              title: "New theme"
-            }, React.createElement(Input$Timerlab.make, {
+  var visible = Props.visible;
+  var onCancel = Props.onCancel;
+  var tmp = {
+    children: null,
+    title: "New theme",
+    visible: visible
+  };
+  if (onCancel !== undefined) {
+    tmp.onCancel = Caml_option.valFromOption(onCancel);
+  }
+  return React.createElement(Modal$Timerlab.make, tmp, React.createElement(Input$Timerlab.make, {
                   label: "Name"
                 }), React.createElement("div", {
                   className: ThemeModalStyles$Timerlab.colors
