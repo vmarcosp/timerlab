@@ -22,6 +22,20 @@ var sidebar = Curry._1(Css.style, {
       }
     });
 
+var configForm = Curry._1(Css.style, {
+      hd: Css.height(Css.pct(100)),
+      tl: {
+        hd: Css.maxWidth(Css.px(350)),
+        tl: {
+          hd: Css.display("flex"),
+          tl: {
+            hd: Css.flexDirection(Css.column),
+            tl: /* [] */0
+          }
+        }
+      }
+    });
+
 var header = Curry._1(Css.style, {
       hd: Css.display("flex"),
       tl: {
@@ -77,7 +91,10 @@ var footer = Curry._1(Css.style, {
               hd: Css.alignItems(Css.center),
               tl: {
                 hd: Css.padding(Css.rem(1)),
-                tl: /* [] */0
+                tl: {
+                  hd: Css.flexDirection(Css.column),
+                  tl: /* [] */0
+                }
               }
             }
           }
@@ -85,11 +102,24 @@ var footer = Curry._1(Css.style, {
       }
     });
 
+var buttonsContainer = Curry._1(Css.style, {
+      hd: Css.display("flex"),
+      tl: {
+        hd: CssHelpers$Timerlab.fullWidth,
+        tl: {
+          hd: Css.marginBottom(Css.rem(1)),
+          tl: /* [] */0
+        }
+      }
+    });
+
 export {
   sidebar ,
+  configForm ,
   header ,
   content ,
   footer ,
+  buttonsContainer ,
   
 }
 /* sidebar Not a pure module */

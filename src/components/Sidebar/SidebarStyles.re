@@ -10,6 +10,14 @@ let sidebar =
     flexDirection(column),
   ]);
 
+let configForm =
+  style([
+    height(100.->pct),
+    maxWidth(350->px),
+    display(`flex),
+    flexDirection(column),
+  ]);
+
 let header =
   style([display(`flex), justifyContent(center), padding(2.->rem)]);
 
@@ -36,4 +44,8 @@ let footer =
     justifyContent(center),
     alignItems(center),
     padding(1.->rem),
+    flexDirection(column),
   ]);
+
+let buttonsContainer =
+  style([display(`flex), fullWidth, marginBottom(1.->rem)]);

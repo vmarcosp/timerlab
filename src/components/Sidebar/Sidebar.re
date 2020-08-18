@@ -1,24 +1,42 @@
+open SidebarForm;
+open SidebarHook;
+
 [@react.component]
-let make = () => {
+let make = (~themes, ~onCreateTheme) => {
+  let form = useSidebar();
+
   SidebarStyles.(
-    <div className=sidebar>
-      <div className=header> <Logo /> </div>
-      <div className=content>
-        <Input label="Title" placeholder="Title" />
-        <Input label="Description" placeholder="Description" />
-        <Input label="Time" placeholder="00:00" type_="number" />
-        <Select label="Theme">
-          <option> "Custom theme"->React.string </option>
-        </Select>
-      </div>
-      <div className=footer>
-        <p>
-          <Text> "Made with " </Text>
-          <Link href="github.com"> "ReasonML " </Link>
-          <Text> " by " </Text>
-          <Link href="lukin.co"> "Lukin Co." </Link>
-        </p>
-      </div>
-    </div>
+    <aside className=sidebar>
+      <Form className=configForm onSubmit={form.submit}>
+        <SidebarHeader />
+        <div className=content>
+          <Input
+            onChange={form->updateTitle}
+            value={form.input.title}
+            label="Title"
+            placeholder="Title"
+          />
+          <Input
+            required=true
+            onChange={form->updateDescription}
+            value={form.input.description}
+            label="Description"
+            placeholder="Description"
+          />
+          <InputTime onChange={form->updateTime} value={form.input.time} />
+          <ThemeSelect
+            onChange={form->updateTheme}
+            value={form.input.theme}
+            options=themes
+          />
+          <ThemeActions>
+            {canEdit(form.input.theme, themes)
+               ? <ThemeActions.Edit /> : React.null}
+            <ThemeActions.Add onClick=onCreateTheme />
+          </ThemeActions>
+        </div>
+        <SidebarFooter />
+      </Form>
+    </aside>
   );
 };
