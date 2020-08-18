@@ -1,4 +1,7 @@
 open Css;
+open CssHelpers;
+
+let removeIcon = Helpers.import("./remove.svg");
 
 let wrapper =
   style([
@@ -24,3 +27,33 @@ let label =
     margin(zero),
     marginTop(1.->rem),
   ]);
+
+let removeButton =
+  style([
+    noBorder,
+    noOutline,
+    padding(zero),
+    margin(zero),
+    position(absolute),
+    top((-6)->px),
+    right((-6)->px),
+    width(23->px),
+    height(22->px),
+    cursor(pointer),
+    borderRadius(50.->pct),
+    background(Theme.Colors.primary),
+    transitionDuration(400),
+    after([contentRule(`url(removeIcon)), width(10->px), height(10->px)]),
+  ]);
+
+let buttonSelector = {j|.$(removeButton)|j};
+
+let previewContainer =
+  style([
+    position(relative),
+    width(124->px),
+    selector(buttonSelector, [opacity(0.)]),
+    hover([selector(buttonSelector, [opacity(1.)])]),
+  ]);
+
+let preview = style([maxWidth(124->px)]);
