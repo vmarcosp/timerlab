@@ -1,8 +1,9 @@
 
 
+import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Button$Timerlab from "../Button/Button.bs.js";
+import * as Helpers$Timerlab from "../../lib/Helpers.bs.js";
 import * as ModalStyles$Timerlab from "./ModalStyles.bs.js";
 
 function Modal(Props) {
@@ -11,13 +12,6 @@ function Modal(Props) {
   var onCancel = Props.onCancel;
   var visibleOpt = Props.visible;
   var visible = visibleOpt !== undefined ? visibleOpt : false;
-  var tmp = {
-    children: "Cancel",
-    variant: "default"
-  };
-  if (onCancel !== undefined) {
-    tmp.onClick = Caml_option.valFromOption(onCancel);
-  }
   return React.createElement("div", {
               className: ModalStyles$Timerlab.wrapper(visible)
             }, React.createElement("div", {
@@ -30,8 +24,16 @@ function Modal(Props) {
                       className: ModalStyles$Timerlab.content
                     }, children), React.createElement("div", {
                       className: ModalStyles$Timerlab.footer
-                    }, React.createElement(Button$Timerlab.make, tmp), React.createElement(Button$Timerlab.make, {
-                          children: "Save"
+                    }, React.createElement(Button$Timerlab.make, {
+                          children: "Cancel",
+                          onClick: (function (e) {
+                              Helpers$Timerlab.preventDefault(e);
+                              return Curry._1(onCancel, undefined);
+                            }),
+                          variant: "default"
+                        }), React.createElement(Button$Timerlab.make, {
+                          children: "Save",
+                          type_: "submit"
                         }))));
 }
 

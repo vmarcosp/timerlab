@@ -13,9 +13,16 @@ function Input(Props) {
   var onBlur = Props.onBlur;
   var labelValue = Props.label;
   var type_ = Props.type_;
+  var innerRef = Props.innerRef;
+  var requiredOpt = Props.required;
+  var required = requiredOpt !== undefined ? requiredOpt : false;
   var tmp = {
-    className: InputStyles$Timerlab.input
+    className: InputStyles$Timerlab.input,
+    required: required
   };
+  if (innerRef !== undefined) {
+    tmp.ref = Caml_option.valFromOption(innerRef);
+  }
   if (name !== undefined) {
     tmp.name = Caml_option.valFromOption(name);
   }

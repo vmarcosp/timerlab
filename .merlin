@@ -1,6 +1,7 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
 FLG -open Timerlab
+FLG -ppx /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/ppx
 FLG -ppx '/Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/darwin/bsc.exe -as-ppx -bs-jsx 3'
 S /Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/lib/ocaml
 B /Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/lib/ocaml
@@ -12,32 +13,50 @@ S /Users/vmarcosp/Projects/timerlab/node_modules/bs-css/lib/ocaml
 B /Users/vmarcosp/Projects/timerlab/node_modules/bs-css/lib/ocaml
 S /Users/vmarcosp/Projects/timerlab/node_modules/bs-css-emotion/lib/ocaml
 B /Users/vmarcosp/Projects/timerlab/node_modules/bs-css-emotion/lib/ocaml
+S /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/lib/ocaml
+B /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/lib/ocaml
+S /Users/vmarcosp/Projects/timerlab/node_modules/bs-webapi/lib/ocaml
+B /Users/vmarcosp/Projects/timerlab/node_modules/bs-webapi/lib/ocaml
 S src
 B lib/bs/src
+S src/bindings
+B lib/bs/src/bindings
 S src/lib
 B lib/bs/src/lib
+S src/hooks
+B lib/bs/src/hooks
 S src/components/Modal
 B lib/bs/src/components/Modal
 S src/components/Select
 B lib/bs/src/components/Select
 S src/components/Text
 B lib/bs/src/components/Text
+S src/components/ThemeActions
+B lib/bs/src/components/ThemeActions
 S src/components/Logo
 B lib/bs/src/components/Logo
 S src/components/Link
 B lib/bs/src/components/Link
 S src/components/Button
 B lib/bs/src/components/Button
+S src/components/ThemeSelect
+B lib/bs/src/components/ThemeSelect
 S src/components/Label
 B lib/bs/src/components/Label
 S src/components/Input
 B lib/bs/src/components/Input
+S src/components/Form
+B lib/bs/src/components/Form
+S src/components/InputTime
+B lib/bs/src/components/InputTime
 S src/components/ThemeModal
 B lib/bs/src/components/ThemeModal
 S src/components/Sidebar
 B lib/bs/src/components/Sidebar
 S src/components/Uploader
 B lib/bs/src/components/Uploader
+S src/types
+B lib/bs/src/types
 S src/ui
 B lib/bs/src/ui
 ####BSB GENERATED: NO EDIT}

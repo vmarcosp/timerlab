@@ -10,6 +10,8 @@ let make =
       ~onBlur=?,
       ~label as labelValue=?,
       ~type_=?,
+      ~innerRef=?,
+      ~required=false,
     ) => {
   Styles.(
     <div>
@@ -18,12 +20,14 @@ let make =
        | None => React.null
        }}
       <input
+        ref=?innerRef
         ?type_
         ?placeholder
         ?onChange
         ?value
         ?name
         ?onBlur
+        required
         className=input
       />
     </div>

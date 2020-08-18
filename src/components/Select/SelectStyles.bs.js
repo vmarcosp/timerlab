@@ -2,6 +2,7 @@
 
 import * as Css from "bs-css-emotion/src/Css.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
+import * as Css_Core from "bs-css/src/Css_Core.js";
 import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 import * as CssHelpers$Timerlab from "../../ui/CssHelpers.bs.js";
 
@@ -25,7 +26,7 @@ var select = Curry._1(Css.style, {
                     hd: Css.borderRadius(Css.px(2)),
                     tl: {
                       hd: Css.focus({
-                            hd: Css.border(Css.px(1), Css.solid, Theme$Timerlab.Colors.primary),
+                            hd: Css.boxShadow(Css_Core.Shadow.box(undefined, undefined, undefined, Css.px(2), undefined, Theme$Timerlab.Colors.primary)),
                             tl: /* [] */0
                           }),
                       tl: {

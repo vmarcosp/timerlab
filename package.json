@@ -8,9 +8,12 @@
     "@testing-library/user-event": "^7.1.2",
     "bs-css-emotion": "1.2.0",
     "bs-platform": "8.2.0",
+    "bs-webapi": "0.19.1",
+    "re-formality": "4.0.0-beta.7",
     "react": "16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-text-mask": "5.4.3",
     "reason-react": "0.9.1"
   },
   "scripts": {

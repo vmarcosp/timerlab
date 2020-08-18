@@ -20,10 +20,14 @@
   "bs-dependencies": [
     "reason-react",
     "bs-css",
-    "bs-css-emotion"
+    "bs-css-emotion",
+    "re-formality",
+    "bs-webapi"
   ],
   "bs-dev-dependencies": [],
-  "ppx-flags": [],
+  "ppx-flags": [
+    "re-formality/ppx"
+  ],
   "refmt": 3,
   "warnings": {
     "error": "+5",

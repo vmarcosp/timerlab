@@ -12,7 +12,7 @@ let select =
     color(white),
     fontSize(1.->rem),
     borderRadius(2->px),
-    focus([border(1->px, solid, Theme.Colors.primary)]),
+    focus([boxShadow(Shadow.box(~spread=2->px, Theme.Colors.primary))]),
     transitionDuration(400),
     marginBottom(1.25->rem),
     padding(0.75->rem),

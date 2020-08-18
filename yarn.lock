@@ -2697,10 +2697,22 @@ bs-css@12.2.0:
   resolved "https://registry.yarnpkg.com/bs-css/-/bs-css-12.2.0.tgz#926e758d7f95c02f516505ecdcd855e1d9dcb2a0"
   integrity sha512-JDaJAc8XKYZA05G8xVuDhB184yGKgNajdUloPC+OK+J8gGTnv8pfrhWKsFFKry87eJN4kKHhgsbXaN5U70g+3Q==
 
+bs-fetch@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.6.2.tgz#37d982e9f79b9bc44c23e87ae78ccbee1f869adf"
+  integrity sha512-VXEjp8kY3vHPckaoy3d96Bx0KYjJAPLNISBwfpwMN26K6DtuZYwI2HKhx7zeHBajz1bRArfx7O8OOLcdtujMvg==
+
 bs-platform@8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-8.2.0.tgz#f3f4c06d5710a4c782f0ed030b1fe11e74a0a6d7"
   integrity sha512-quvmUac/ZxGDsT7L5+6RNXrLPvLHkWFownacaqlwVoyAm770bPyupTRU49ALPGk3HpjfD5eE+lpGdOSPtuwJiA==
+
+bs-webapi@0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/bs-webapi/-/bs-webapi-0.19.1.tgz#cae7d65fc43795376becc44b56f46d85e5b8e878"
+  integrity sha512-sRhkNdHFBxzoiLH+r8rhlW9XSafBbbGCkvsxtTJ1QMABEaHKj8TejwA7TuBZH2ZYL2ur3sk291ukkge5qFm3Uw==
+  dependencies:
+    bs-fetch "^0.6.2"
 
 bser@2.1.1:
   version "2.1.1"
@@ -8479,7 +8491,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.6, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8633,6 +8645,18 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+re-debouncer@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/re-debouncer/-/re-debouncer-2.1.0.tgz#2eaf7994ba41590f4f80d4a363ae8905156b7dc1"
+  integrity sha512-Iy9BecWF9X4V6zXfL3ROZpKGkCnpzYdjG/j6NIBxQn7gEwO2DzED5BsbfRUiPeqr7C0tAD0HPHF6tYIcQFEnyA==
+
+re-formality@4.0.0-beta.7:
+  version "4.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/re-formality/-/re-formality-4.0.0-beta.7.tgz#c29787034bcc3874251d7d214208951d270e2e47"
+  integrity sha512-vlfjdlua/idT+vjNb25KxF7LDzrSrycaoYNGmyABB6MVLEjVCIKeck3PXlSnd/d3CD2iBvircz1QEsUf0tjTug==
+  dependencies:
+    re-debouncer "2.1.0"
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -8754,6 +8778,13 @@ react-scripts@3.4.3:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-text-mask@5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.3.tgz#991efb4299e30c2e6c2c46d13f617169463e0d2d"
+  integrity sha1-mR77QpnjDC5sLEbRP2FxaUY+DS0=
+  dependencies:
+    prop-types "^15.5.6"
 
 react@16.13.1:
   version "16.13.1"

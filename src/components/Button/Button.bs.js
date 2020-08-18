@@ -23,7 +23,7 @@ function getHoverColor(param) {
   }
 }
 
-function button(variant) {
+function button(variant, block) {
   return Curry._1(Css.style, {
               hd: Css.background(getColor(variant)),
               tl: {
@@ -37,7 +37,7 @@ function button(variant) {
                       tl: {
                         hd: Css.cursor(Css.pointer),
                         tl: {
-                          hd: Css.minWidth(Css.px(140)),
+                          hd: block ? CssHelpers$Timerlab.fullWidth : Css.minWidth(Css.px(140)),
                           tl: {
                             hd: Css.height(Css.px(40)),
                             tl: {
@@ -45,16 +45,13 @@ function button(variant) {
                               tl: {
                                 hd: Css.fontSize(Css.rem(1)),
                                 tl: {
-                                  hd: Css.marginLeft(Css.rem(1)),
+                                  hd: Css.transitionDuration(300),
                                   tl: {
-                                    hd: Css.transitionDuration(300),
-                                    tl: {
-                                      hd: Css.hover({
-                                            hd: Css.background(getHoverColor(variant)),
-                                            tl: /* [] */0
-                                          }),
-                                      tl: /* [] */0
-                                    }
+                                    hd: Css.hover({
+                                          hd: Css.background(getHoverColor(variant)),
+                                          tl: /* [] */0
+                                        }),
+                                    tl: /* [] */0
                                   }
                                 }
                               }
@@ -79,10 +76,16 @@ function Button(Props) {
   var children = Props.children;
   var onClick = Props.onClick;
   var variantOpt = Props.variant;
+  var blockOpt = Props.block;
+  var type_ = Props.type_;
   var variant = variantOpt !== undefined ? variantOpt : "primary";
+  var block = blockOpt !== undefined ? blockOpt : false;
   var tmp = {
-    className: button(variant)
+    className: button(variant, block)
   };
+  if (type_ !== undefined) {
+    tmp.type = Caml_option.valFromOption(type_);
+  }
   if (onClick !== undefined) {
     tmp.onClick = Caml_option.valFromOption(onClick);
   }

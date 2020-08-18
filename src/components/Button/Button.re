@@ -9,7 +9,7 @@ module Styles = {
     fun
     | `primary => "C02A60"->hex
     | `default => rgba(69, 48, 82, 0.16);
-  let button = (~variant) =>
+  let button = (~variant, ~block) =>
     style([
       background(getColor(variant)),
       noBorder,
@@ -17,11 +17,10 @@ module Styles = {
       color(white),
       borderRadius(2->px),
       cursor(pointer),
-      minWidth(140->px),
+      block ? fullWidth : minWidth(140->px),
       height(40->px),
       Theme.Fonts.text,
       fontSize(1.->rem),
-      marginLeft(1.->rem),
       transitionDuration(300),
       hover([background(getHoverColor(variant))]),
     ]);
@@ -30,9 +29,9 @@ module Styles = {
 type variant = [ | `primary | `default];
 
 [@react.component]
-let make = (~children, ~onClick=?, ~variant=`primary) => {
+let make = (~children, ~onClick=?, ~variant=`primary, ~block=false, ~type_=?) => {
   Styles.(
-    <button ?onClick className={button(~variant)}>
+    <button ?type_ ?onClick className={button(~variant, ~block)}>
       children->React.string
     </button>
   );

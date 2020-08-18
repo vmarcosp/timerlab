@@ -2,13 +2,22 @@
 
 import * as Css from "bs-css-emotion/src/Css.js";
 
-var primary = Css.hex("FF357E");
+var primaryRaw = "FF357E";
 
-var background = Css.hex("1E052D");
+var backgroundRaw = "1E052D";
 
-var shape = Css.hex("351D43");
+var shapeRaw = "351D43";
+
+var primary = Css.hex(primaryRaw);
+
+var background = Css.hex(backgroundRaw);
+
+var shape = Css.hex(shapeRaw);
 
 var Colors = {
+  primaryRaw: primaryRaw,
+  backgroundRaw: backgroundRaw,
+  shapeRaw: shapeRaw,
   primary: primary,
   background: background,
   shape: shape

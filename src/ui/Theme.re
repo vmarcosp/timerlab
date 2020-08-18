@@ -1,7 +1,10 @@
 module Colors = {
-  let primary = "FF357E"->Css.hex;
-  let background = "1E052D"->Css.hex;
-  let shape = "351D43"->Css.hex;
+  let primaryRaw = "FF357E";
+  let backgroundRaw = "1E052D";
+  let shapeRaw = "351D43";
+  let primary = primaryRaw->Css.hex;
+  let background = backgroundRaw->Css.hex;
+  let shape = shapeRaw->Css.hex;
 };
 
 module Fonts = {

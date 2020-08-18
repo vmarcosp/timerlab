@@ -29,6 +29,7 @@ let wrapper = visible => {
   let animation = visible ? fadeIn : [];
   style(List.concat(base, animation));
 };
+
 let modal =
   style([
     minWidth(425->px),

@@ -1,5 +1,5 @@
 [@react.component]
-let make = (~children, ~title as modalTitle, ~onCancel=?, ~visible=false) => {
+let make = (~children, ~title as modalTitle, ~onCancel, ~visible=false) => {
   ModalStyles.(
     <div className={wrapper(visible)}>
       <div className=modal>
@@ -8,8 +8,15 @@ let make = (~children, ~title as modalTitle, ~onCancel=?, ~visible=false) => {
         </div>
         <div className=content> children </div>
         <div className=footer>
-          <Button onClick=?onCancel variant=`default> "Cancel" </Button>
-          <Button> "Save" </Button>
+          <Button
+            onClick={e => {
+              Helpers.preventDefault(e);
+              onCancel();
+            }}
+            variant=`default>
+            "Cancel"
+          </Button>
+          <Button type_="submit"> "Save" </Button>
         </div>
       </div>
     </div>
