@@ -1,15 +1,25 @@
+open ThemeForm;
+
 [@react.component]
-let make = (~visible, ~onCancel=?) => {
+let make =
+    (
+      ~visible,
+      ~onCancel,
+      ~initialValues as initialInput,
+      ~onFinish as onSubmit,
+    ) => {
+  let form = useForm(~initialInput, ~onSubmit);
   ThemeModalStyles.(
-    <Modal ?onCancel visible title="New theme">
-      <Input label="Name" />
-      <div className=colors>
-        <Input label="Primary color" />
-        <Input label="Secondary color" />
-      </div>
-      <Input label="Background" />
-      <br />
-      <Uploader />
-    </Modal>
+    <Form onSubmit={form.submit}>
+      <Modal onCancel visible title="New theme">
+        <Input required=true onChange={form->updateName} label="Name" />
+        <div className=colors>
+          <Input onChange={form->updatePrimaryColor} label="Primary color" />
+          <Input onChange={form->updatePrimaryColor} label="Secondary color" />
+        </div>
+        <Input onChange={form->updateBackground} label="Background" />
+        <Uploader />
+      </Modal>
+    </Form>
   );
 };
