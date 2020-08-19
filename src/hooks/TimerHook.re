@@ -1,5 +1,6 @@
 open Operators;
 open TimerTypes;
+open SidebarForm;
 include TimerValues;
 
 let toThemeForm = (id, newTheme, theme) =>
@@ -7,8 +8,10 @@ let toThemeForm = (id, newTheme, theme) =>
 
 let byThemeId = (id, theme) => theme.id == id;
 
-let useTimer = () => {
-  let (config, setConfig) = React.useState(_ => (initialConfig, cleanTheme));
+let setNewTheme = (form, newTheme) =>
+  form.updateTheme((input: input, theme) => {...input, theme}, newTheme);
+
+let useTimer = (configForm: SidebarForm.interface) => {
   let (visible, setVisible) = React.useState(_ => true);
   let (status, setStatus) = React.useState(_ => Default);
   let (themes, setThemes) = React.useState(_ => defaultThemes);
@@ -22,6 +25,7 @@ let useTimer = () => {
     let newTheme = fromThemeForm(values, ID.generate());
     let allThemes = Array.concat(themes, [|newTheme|]);
     setThemes(_ => allThemes);
+    setNewTheme(configForm, newTheme.id);
     closeModal();
     form.reset();
   };
@@ -42,17 +46,10 @@ let useTimer = () => {
     ();
   };
 
-  let onSubmit =
-      (newConfig: SidebarForm.output, form: SidebarForm.submissionForm) => {
-    let selectedTheme =
-      themes->Array.getBy(byThemeId(newConfig.theme)) >>? cleanTheme;
-    setConfig(_ => (newConfig, selectedTheme));
-    timer.setTimer(newConfig.time);
-    form.notifyOnSuccess(Some(newConfig));
-  };
+  let getTheme = id => themes->Array.getBy(byThemeId(id)) >>? cleanTheme;
 
   (
-    onSubmit,
+    getTheme,
     openCreateTheme,
     onCreateNewTheme,
     onEditTheme,
@@ -62,8 +59,6 @@ let useTimer = () => {
     visible,
     status,
     themes,
-    initialConfig,
     timer,
-    config,
   );
 };

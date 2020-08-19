@@ -2,9 +2,6 @@
 let make = () => {
   SidebarStyles.(
     <div className=footer>
-      <div className=buttonsContainer>
-        <Button block=true> "Save" </Button>
-      </div>
       <p>
         <Text> "Made with " </Text>
         <Link target="_blank" href="https://github.com/lukinco/timerlab">

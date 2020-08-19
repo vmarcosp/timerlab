@@ -4,8 +4,11 @@ let onSubmit = (_, _) => ();
 
 [@react.component]
 let make = () => {
+  let form =
+    SidebarForm.useForm(~initialInput=TimerValues.initialConfig, ~onSubmit);
+
   let (
-    onSubmit,
+    getTheme,
     openCreateTheme,
     createNewTheme,
     onEditTheme,
@@ -15,27 +18,18 @@ let make = () => {
     visible,
     status,
     themes,
-    initialInput,
     timer,
-    (config, theme),
   ) =
-    useTimer();
+    useTimer(form);
 
   <>
-    <Sidebar
-      onSubmit
-      initialInput
-      visible
-      themes
-      onEditTheme
-      onCreateTheme=openCreateTheme
-    />
+    <Sidebar form visible themes onEditTheme onCreateTheme=openCreateTheme />
     <TimerPreview
       timer
-      theme
-      time={config.time}
-      title={config.title}
-      description={config.description}
+      theme={getTheme(form.input.theme)}
+      time={form.input.time}
+      title={form.input.title}
+      description={form.input.description}
       fullWidth=visible
       onToggle=toggleVisible
     />

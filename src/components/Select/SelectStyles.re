@@ -11,7 +11,7 @@ let wrapper =
       height(17->px),
       position(absolute),
       display(block),
-      top(0.75->rem),
+      top(0.95->rem),
       right(0.95->rem),
       color(red),
       backgroundImage(`url(icon)),

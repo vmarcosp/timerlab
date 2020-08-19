@@ -11,16 +11,7 @@ let canEdit = (id, themes) =>
   };
 
 [@react.component]
-let make =
-    (
-      ~themes,
-      ~onCreateTheme,
-      ~onEditTheme,
-      ~visible,
-      ~onSubmit,
-      ~initialInput,
-    ) => {
-  let form = SidebarForm.useForm(~initialInput, ~onSubmit);
+let make = (~themes, ~onCreateTheme, ~onEditTheme, ~visible, ~form) => {
   SidebarStyles.(
     <aside className={sidebar(visible)}>
       <Form className=configForm onSubmit={form.submit}>
