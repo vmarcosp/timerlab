@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/_esy
 # testing
 /coverage
 
@@ -22,3 +22,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /lib/
+*.bs.js
