@@ -1,6 +1,23 @@
 open Css;
 open CssHelpers;
-let icon = Helpers.import("./select-icon.svg");
+let icon = Helpers.import("./arrow-icon.svg");
+
+let wrapper =
+  style([
+    position(relative),
+    after([
+      contentRule(`text(" ")),
+      width(11->px),
+      height(17->px),
+      position(absolute),
+      display(block),
+      top(0.75->rem),
+      right(0.95->rem),
+      color(red),
+      backgroundImage(`url(icon)),
+      backgroundSize(`auto),
+    ]),
+  ]);
 
 let select =
   style([
@@ -16,7 +33,7 @@ let select =
     transitionDuration(400),
     marginBottom(1.25->rem),
     padding(0.75->rem),
-    position(relative),
+    display(block),
   ]);
 
 let label =

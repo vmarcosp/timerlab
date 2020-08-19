@@ -56,4 +56,4 @@ let previewContainer =
     hover([selector(buttonSelector, [opacity(1.)])]),
   ]);
 
-let preview = style([maxWidth(124->px)]);
+let preview = style([maxWidth(124->px), borderRadius(4->px)]);

@@ -1,19 +1,23 @@
 open Css;
 open CssHelpers;
 
-let sidebar =
+let sidebar = visible =>
   style([
+    position(fixed),
+    top(zero),
+    visible ? left(zero) : left((-350)->px),
     background(Theme.Colors.background),
     height(100.->pct),
-    maxWidth(350->px),
+    width(Theme.sidebarWidth),
     display(`flex),
     flexDirection(column),
+    transitionDuration(400),
   ]);
 
 let configForm =
   style([
     height(100.->pct),
-    maxWidth(350->px),
+    maxWidth(Theme.sidebarWidth),
     display(`flex),
     flexDirection(column),
   ]);

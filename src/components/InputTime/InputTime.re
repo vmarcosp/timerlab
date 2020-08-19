@@ -1,5 +1,5 @@
 let number = [%re "/\d/"];
-let mask = (number, number, ":", number, number, ":", number, number);
+let mask = (number, number, ":", number, number);
 
 [@react.component]
 let make = (~onChange=?, ~value=?) =>
@@ -9,7 +9,7 @@ let make = (~onChange=?, ~value=?) =>
     ?value
     render={(innerRef, props) =>
       <Input
-        placeholder="00:00:00"
+        placeholder="00:00"
         label="Time"
         innerRef
         value={props.value}

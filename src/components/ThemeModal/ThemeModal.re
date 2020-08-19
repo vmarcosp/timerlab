@@ -20,20 +20,20 @@ let make =
           label="Name"
         />
         <div className=colors>
-          <Input
+          <InputColor
             required=true
             value={form.input.primaryColor}
             onChange={form->updatePrimaryColor}
             label="Primary color"
           />
-          <Input
+          <InputColor
             required=true
             value={form.input.secondaryColor}
             onChange={form->updateSecondaryColor}
             label="Secondary color"
           />
         </div>
-        <Input
+        <InputColor
           value={form.input.backgroundColor}
           onChange={form->updateBackgroundColor}
           label="Background color"

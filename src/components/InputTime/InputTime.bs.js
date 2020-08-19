@@ -12,9 +12,6 @@ var mask = [
   number,
   ":",
   number,
-  number,
-  ":",
-  number,
   number
 ];
 
@@ -25,7 +22,7 @@ function InputTime(Props) {
     mask: mask,
     render: (function (innerRef, props) {
         return React.createElement(Input$Timerlab.make, {
-                    placeholder: "00:00:00",
+                    placeholder: "00:00",
                     onChange: props.onChange,
                     value: props.value,
                     label: "Time",

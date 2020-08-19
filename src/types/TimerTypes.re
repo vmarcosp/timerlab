@@ -11,13 +11,6 @@ type theme = {
   default: bool,
 };
 
-type config = {
-  title: string,
-  description: string,
-  time: string,
-  theme: string,
-};
-
 type status =
   | IsCreating
   | IsEditing(string, ThemeForm.input)

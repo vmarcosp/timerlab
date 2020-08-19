@@ -25,6 +25,7 @@ let wrapper = visible => {
     visibility(hidden),
     justifyContent(center),
     alignItems(center),
+    zIndex(1000),
   ];
   let animation = visible ? fadeIn : [];
   style(List.concat(base, animation));

@@ -21,7 +21,9 @@ function Select(Props) {
   }
   return React.createElement("div", undefined, labelValue !== undefined ? React.createElement(Label$Timerlab.make, {
                     children: labelValue
-                  }) : null, React.createElement("select", tmp, children));
+                  }) : null, React.createElement("div", {
+                  className: SelectStyles$Timerlab.wrapper
+                }, React.createElement("select", tmp, children)));
 }
 
 var make = Select;

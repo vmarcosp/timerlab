@@ -8,7 +8,11 @@ include [%form
           let validators = {
             title: None,
             description: None,
-            time: None,
+            time: {
+              strategy: OnSubmit,
+              validate: ({time}) =>
+                Ok(Js.String.replaceByRe([%re "/_/g"], "0", time)),
+            },
             theme: None,
           }
         ];

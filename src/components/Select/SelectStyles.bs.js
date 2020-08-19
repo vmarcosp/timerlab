@@ -6,7 +6,51 @@ import * as Css_Core from "bs-css/src/Css_Core.js";
 import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 import * as CssHelpers$Timerlab from "../../ui/CssHelpers.bs.js";
 
-var icon = require("./select-icon.svg");
+var icon = require("./arrow-icon.svg");
+
+var wrapper = Curry._1(Css.style, {
+      hd: Css.position(Css.relative),
+      tl: {
+        hd: Css.after({
+              hd: Css.contentRule({
+                    NAME: "text",
+                    VAL: " "
+                  }),
+              tl: {
+                hd: Css.width(Css.px(11)),
+                tl: {
+                  hd: Css.height(Css.px(17)),
+                  tl: {
+                    hd: Css.position(Css.absolute),
+                    tl: {
+                      hd: Css.display(Css.block),
+                      tl: {
+                        hd: Css.top(Css.rem(0.75)),
+                        tl: {
+                          hd: Css.right(Css.rem(0.95)),
+                          tl: {
+                            hd: Css.color(Css.red),
+                            tl: {
+                              hd: Css.backgroundImage({
+                                    NAME: "url",
+                                    VAL: icon
+                                  }),
+                              tl: {
+                                hd: Css.backgroundSize("auto"),
+                                tl: /* [] */0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }),
+        tl: /* [] */0
+      }
+    });
 
 var select = Curry._1(Css.style, {
       hd: CssHelpers$Timerlab.fullWidth,
@@ -36,7 +80,7 @@ var select = Curry._1(Css.style, {
                           tl: {
                             hd: Css.padding(Css.rem(0.75)),
                             tl: {
-                              hd: Css.position(Css.relative),
+                              hd: Css.display(Css.block),
                               tl: /* [] */0
                             }
                           }
@@ -71,6 +115,7 @@ var label = Curry._1(Css.style, {
 
 export {
   icon ,
+  wrapper ,
   select ,
   label ,
   

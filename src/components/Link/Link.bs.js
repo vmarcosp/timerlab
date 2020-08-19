@@ -3,6 +3,7 @@
 import * as Css from "bs-css-emotion/src/Css.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
+import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 
 var link = Curry._1(Css.style, {
@@ -19,10 +20,15 @@ var link = Curry._1(Css.style, {
 function Link(Props) {
   var href = Props.href;
   var children = Props.children;
-  return React.createElement("a", {
-              className: link,
-              href: href
-            }, children);
+  var target = Props.target;
+  var tmp = {
+    className: link,
+    href: href
+  };
+  if (target !== undefined) {
+    tmp.target = Caml_option.valFromOption(target);
+  }
+  return React.createElement("a", tmp, children);
 }
 
 var make = Link;

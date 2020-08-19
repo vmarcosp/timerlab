@@ -3,6 +3,8 @@
 import * as Css from "bs-css-emotion/src/Css.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
 
+require("./reset.css");
+
 function add(param) {
   Curry._2(Css.$$global, "html, body, #root", {
         hd: Css.margin(Css.zero),
@@ -27,4 +29,4 @@ export {
   add ,
   
 }
-/* Css Not a pure module */
+/*  Not a pure module */

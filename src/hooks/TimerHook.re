@@ -1,45 +1,22 @@
+open Operators;
 open TimerTypes;
+include TimerValues;
 
-let darkThemeId = ID.generate();
-let cleanThemeId = ID.generate();
-
-let defaultThemes = [|
-  {
-    id: cleanThemeId,
-    name: "Clean",
-    primaryColor: Theme.Colors.primaryRaw,
-    secondaryColor: Theme.Colors.backgroundRaw,
-    background: Color("fff"),
-    default: true,
-  },
-  {
-    id: darkThemeId,
-    name: "Dark",
-    primaryColor: Theme.Colors.primaryRaw,
-    secondaryColor: "fff",
-    background: Color(Theme.Colors.backgroundRaw),
-    default: false,
-  },
-|];
-
-let initialValues: ThemeForm.input = {
-  name: "",
-  primaryColor: "",
-  secondaryColor: "",
-  backgroundColor: "",
-  backgroundImage: "",
-};
-
-let findTheme = (id, newTheme, theme) =>
+let toThemeForm = (id, newTheme, theme) =>
   theme.id === id ? fromThemeForm(newTheme, id) : theme;
 
-let useThemes = () => {
+let byThemeId = (id, theme) => theme.id == id;
+
+let useTimer = () => {
+  let (config, setConfig) = React.useState(_ => (initialConfig, cleanTheme));
+  let (visible, setVisible) = React.useState(_ => true);
   let (status, setStatus) = React.useState(_ => Default);
   let (themes, setThemes) = React.useState(_ => defaultThemes);
+  let timer = UseTimerHook.useTimer(initialConfig.time);
 
   let openCreateTheme = _ => setStatus(_ => IsCreating);
-
   let closeModal = () => setStatus(_ => Default);
+  let toggleVisible = () => setVisible(_ => !visible);
 
   let onCreateNewTheme = (values, form: ThemeForm.submissionForm) => {
     let newTheme = fromThemeForm(values, ID.generate());
@@ -58,20 +35,35 @@ let useThemes = () => {
   };
 
   let updateTheme = (themeId, updatedTheme, form: ThemeForm.submissionForm) => {
-    let allThemes = themes->Array.map(findTheme(themeId, updatedTheme));
+    let allThemes = themes->Array.map(toThemeForm(themeId, updatedTheme));
     setThemes(_ => allThemes);
     closeModal();
     form.reset();
     ();
   };
 
+  let onSubmit =
+      (newConfig: SidebarForm.output, form: SidebarForm.submissionForm) => {
+    let selectedTheme =
+      themes->Array.getBy(byThemeId(newConfig.theme)) >>? cleanTheme;
+    setConfig(_ => (newConfig, selectedTheme));
+    timer.setTimer(newConfig.time);
+    form.notifyOnSuccess(Some(newConfig));
+  };
+
   (
+    onSubmit,
     openCreateTheme,
     onCreateNewTheme,
     onEditTheme,
     updateTheme,
     closeModal,
+    toggleVisible,
+    visible,
     status,
     themes,
+    initialConfig,
+    timer,
+    config,
   );
 };

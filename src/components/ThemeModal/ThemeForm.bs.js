@@ -5,6 +5,7 @@ import * as React from "react";
 import * as Formality from "re-formality/src/Formality.bs.js";
 import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Form$Timerlab from "../Form/Form.bs.js";
+import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 import * as Formality__ReactUpdate from "re-formality/src/Formality__ReactUpdate.bs.js";
 
 var validators_backgroundImage = {
@@ -43,11 +44,33 @@ var validators_backgroundColor = {
     })
 };
 
+var validators_secondaryColor = {
+  strategy: /* OnSubmit */4,
+  validate: (function (param) {
+      var secondaryColor = param.secondaryColor;
+      return {
+              TAG: /* Ok */0,
+              _0: secondaryColor === "" ? "#000" : secondaryColor
+            };
+    })
+};
+
+var validators_primaryColor = {
+  strategy: /* OnSubmit */4,
+  validate: (function (param) {
+      var primaryColor = param.primaryColor;
+      return {
+              TAG: /* Ok */0,
+              _0: primaryColor === "" ? Theme$Timerlab.Colors.toHex(Theme$Timerlab.Colors.primaryRaw) : primaryColor
+            };
+    })
+};
+
 var validators = {
   backgroundImage: validators_backgroundImage,
   backgroundColor: validators_backgroundColor,
-  secondaryColor: undefined,
-  primaryColor: undefined,
+  secondaryColor: validators_secondaryColor,
+  primaryColor: validators_primaryColor,
   name: undefined
 };
 
@@ -76,14 +99,10 @@ function validateForm(input, validators, fieldsStatuses) {
   var match_0 = match ? match._0 : Curry._1(validators.backgroundImage.validate, input);
   var match$1 = fieldsStatuses.backgroundColor;
   var match_0$1 = match$1 ? match$1._0 : Curry._1(validators.backgroundColor.validate, input);
-  var match_0$2 = {
-    TAG: /* Ok */0,
-    _0: input.secondaryColor
-  };
-  var match_0$3 = {
-    TAG: /* Ok */0,
-    _0: input.primaryColor
-  };
+  var match$2 = fieldsStatuses.secondaryColor;
+  var match_0$2 = match$2 ? match$2._0 : Curry._1(validators.secondaryColor.validate, input);
+  var match$3 = fieldsStatuses.primaryColor;
+  var match_0$3 = match$3 ? match$3._0 : Curry._1(validators.primaryColor.validate, input);
   var match_0$4 = {
     TAG: /* Ok */0,
     _0: input.name
@@ -127,11 +146,11 @@ function validateForm(input, validators, fieldsStatuses) {
                       },
                       secondaryColor: /* Dirty */{
                         _0: secondaryColorResult,
-                        _1: /* Hidden */1
+                        _1: /* Shown */0
                       },
                       primaryColor: /* Dirty */{
                         _0: primaryColorResult,
-                        _1: /* Hidden */1
+                        _1: /* Shown */0
                       },
                       name: /* Dirty */{
                         _0: nameResult,
@@ -159,11 +178,11 @@ function validateForm(input, validators, fieldsStatuses) {
             },
             secondaryColor: /* Dirty */{
               _0: match_0$2,
-              _1: /* Hidden */1
+              _1: /* Shown */0
             },
             primaryColor: /* Dirty */{
               _0: match_0$3,
-              _1: /* Hidden */1
+              _1: /* Shown */0
             },
             name: /* Dirty */{
               _0: match_0$4,
@@ -232,7 +251,7 @@ function useForm(initialInput, onSubmit) {
                     return /* NoUpdate */0;
                   }
               case /* BlurSecondaryColorField */2 :
-                  var result$2 = Formality.validateFieldOnBlurWithoutValidator(state.input.secondaryColor, state.fieldsStatuses.secondaryColor, (function (status) {
+                  var result$2 = Formality.validateFieldOnBlurWithValidator(state.input, state.fieldsStatuses.secondaryColor, validators_secondaryColor, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
                                   backgroundImage: init.backgroundImage,
@@ -257,7 +276,7 @@ function useForm(initialInput, onSubmit) {
                     return /* NoUpdate */0;
                   }
               case /* BlurPrimaryColorField */3 :
-                  var result$3 = Formality.validateFieldOnBlurWithoutValidator(state.input.primaryColor, state.fieldsStatuses.primaryColor, (function (status) {
+                  var result$3 = Formality.validateFieldOnBlurWithValidator(state.input, state.fieldsStatuses.primaryColor, validators_primaryColor, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
                                   backgroundImage: init.backgroundImage,
@@ -458,7 +477,7 @@ function useForm(initialInput, onSubmit) {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$2,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$2.secondaryColor, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithValidator(nextInput$2, state.fieldsStatuses.secondaryColor, state.submissionStatus, validators_secondaryColor, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
                                             backgroundImage: init.backgroundImage,
@@ -479,7 +498,7 @@ function useForm(initialInput, onSubmit) {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$3,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$3.primaryColor, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithValidator(nextInput$3, state.fieldsStatuses.primaryColor, state.submissionStatus, validators_primaryColor, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
                                             backgroundImage: init.backgroundImage,

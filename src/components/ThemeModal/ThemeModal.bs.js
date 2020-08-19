@@ -7,6 +7,7 @@ import * as Modal$Timerlab from "../Modal/Modal.bs.js";
 import * as OrLabel$Timerlab from "../OrLabel/OrLabel.bs.js";
 import * as Uploader$Timerlab from "../Uploader/Uploader.bs.js";
 import * as ThemeForm$Timerlab from "./ThemeForm.bs.js";
+import * as InputColor$Timerlab from "../InputColor/InputColor.bs.js";
 import * as ThemeModalStyles$Timerlab from "./ThemeModalStyles.bs.js";
 
 function ThemeModal(Props) {
@@ -30,17 +31,17 @@ function ThemeModal(Props) {
                         required: true
                       }), React.createElement("div", {
                         className: ThemeModalStyles$Timerlab.colors
-                      }, React.createElement(Input$Timerlab.make, {
+                      }, React.createElement(InputColor$Timerlab.make, {
                             onChange: ThemeForm$Timerlab.updatePrimaryColor(form),
                             value: form.input.primaryColor,
                             label: "Primary color",
                             required: true
-                          }), React.createElement(Input$Timerlab.make, {
+                          }), React.createElement(InputColor$Timerlab.make, {
                             onChange: ThemeForm$Timerlab.updateSecondaryColor(form),
                             value: form.input.secondaryColor,
                             label: "Secondary color",
                             required: true
-                          })), React.createElement(Input$Timerlab.make, {
+                          })), React.createElement(InputColor$Timerlab.make, {
                         onChange: ThemeForm$Timerlab.updateBackgroundColor(form),
                         value: form.input.backgroundColor,
                         label: "Background color"

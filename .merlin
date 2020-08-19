@@ -25,12 +25,16 @@ S src/lib
 B lib/bs/src/lib
 S src/hooks
 B lib/bs/src/hooks
+S src/components/InputColor
+B lib/bs/src/components/InputColor
 S src/components/Modal
 B lib/bs/src/components/Modal
 S src/components/Select
 B lib/bs/src/components/Select
 S src/components/Text
 B lib/bs/src/components/Text
+S src/components/TimerPreview
+B lib/bs/src/components/TimerPreview
 S src/components/ThemeActions
 B lib/bs/src/components/ThemeActions
 S src/components/Logo
@@ -41,6 +45,8 @@ S src/components/Button
 B lib/bs/src/components/Button
 S src/components/OrLabel
 B lib/bs/src/components/OrLabel
+S src/components/Controls
+B lib/bs/src/components/Controls
 S src/components/ThemeSelect
 B lib/bs/src/components/ThemeSelect
 S src/components/Label

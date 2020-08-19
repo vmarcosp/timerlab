@@ -8,6 +8,6 @@ let link =
   );
 
 [@react.component]
-let make = (~href, ~children) => {
-  <a href className=link> children->React.string </a>;
+let make = (~href, ~children, ~target=?) => {
+  <a ?target href className=link> children->React.string </a>;
 };

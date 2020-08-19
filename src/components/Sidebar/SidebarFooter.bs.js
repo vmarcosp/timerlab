@@ -12,18 +12,20 @@ function SidebarFooter(Props) {
             }, React.createElement("div", {
                   className: SidebarStyles$Timerlab.buttonsContainer
                 }, React.createElement(Button$Timerlab.make, {
-                      children: "Apply changes",
+                      children: "Save",
                       block: true
                     })), React.createElement("p", undefined, React.createElement(Text$Timerlab.make, {
                       children: "Made with "
                     }), React.createElement(Link$Timerlab.make, {
-                      href: "github.com",
-                      children: "ReasonML "
+                      href: "https://github.com/lukinco/timerlab",
+                      children: "ReasonML ",
+                      target: "_blank"
                     }), React.createElement(Text$Timerlab.make, {
                       children: " by "
                     }), React.createElement(Link$Timerlab.make, {
-                      href: "lukin.co",
-                      children: "Lukin Co."
+                      href: "https://lukin.co",
+                      children: "Lukin Co.",
+                      target: "_blank"
                     })));
 }
 

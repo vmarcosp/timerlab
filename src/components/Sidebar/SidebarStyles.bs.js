@@ -5,27 +5,41 @@ import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Theme$Timerlab from "../../ui/Theme.bs.js";
 import * as CssHelpers$Timerlab from "../../ui/CssHelpers.bs.js";
 
-var sidebar = Curry._1(Css.style, {
-      hd: Css.background(Theme$Timerlab.Colors.background),
-      tl: {
-        hd: Css.height(Css.pct(100)),
-        tl: {
-          hd: Css.maxWidth(Css.px(350)),
-          tl: {
-            hd: Css.display("flex"),
-            tl: {
-              hd: Css.flexDirection(Css.column),
-              tl: /* [] */0
-            }
-          }
-        }
-      }
-    });
+function sidebar(visible) {
+  return Curry._1(Css.style, {
+              hd: Css.position(Css.fixed),
+              tl: {
+                hd: Css.top(Css.zero),
+                tl: {
+                  hd: visible ? Css.left(Css.zero) : Css.left(Css.px(-350)),
+                  tl: {
+                    hd: Css.background(Theme$Timerlab.Colors.background),
+                    tl: {
+                      hd: Css.height(Css.pct(100)),
+                      tl: {
+                        hd: Css.width(Theme$Timerlab.sidebarWidth),
+                        tl: {
+                          hd: Css.display("flex"),
+                          tl: {
+                            hd: Css.flexDirection(Css.column),
+                            tl: {
+                              hd: Css.transitionDuration(400),
+                              tl: /* [] */0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            });
+}
 
 var configForm = Curry._1(Css.style, {
       hd: Css.height(Css.pct(100)),
       tl: {
-        hd: Css.maxWidth(Css.px(350)),
+        hd: Css.maxWidth(Theme$Timerlab.sidebarWidth),
         tl: {
           hd: Css.display("flex"),
           tl: {
@@ -122,4 +136,4 @@ export {
   buttonsContainer ,
   
 }
-/* sidebar Not a pure module */
+/* configForm Not a pure module */

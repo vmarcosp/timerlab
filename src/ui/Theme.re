@@ -5,8 +5,12 @@ module Colors = {
   let primary = primaryRaw->Css.hex;
   let background = backgroundRaw->Css.hex;
   let shape = shapeRaw->Css.hex;
+
+  let toHex = value => "#" ++ value;
 };
 
 module Fonts = {
-  let text = Css.fontFamily(`custom({|'Raleway', sans-serif|}));
+  let text = Css.fontFamily(`custom({|'Poppins', sans-serif|}));
 };
+
+let sidebarWidth = 350->Css.px;

@@ -1,12 +1,28 @@
 open SidebarForm;
-open SidebarHook;
+open TimerTypes;
+
+let getTheme = (id, themes) => themes->Array.getBy(theme => theme.id === id);
+
+let canEdit = (id, themes) =>
+  switch (getTheme(id, themes)) {
+  | Some({default: false, _})
+  | None => true
+  | _ => false
+  };
 
 [@react.component]
-let make = (~themes, ~onCreateTheme, ~onEditTheme) => {
-  let form = useSidebar();
-
+let make =
+    (
+      ~themes,
+      ~onCreateTheme,
+      ~onEditTheme,
+      ~visible,
+      ~onSubmit,
+      ~initialInput,
+    ) => {
+  let form = SidebarForm.useForm(~initialInput, ~onSubmit);
   SidebarStyles.(
-    <aside className=sidebar>
+    <aside className={sidebar(visible)}>
       <Form className=configForm onSubmit={form.submit}>
         <SidebarHeader />
         <div className=content>

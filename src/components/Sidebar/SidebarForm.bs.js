@@ -7,10 +7,20 @@ import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Form$Timerlab from "../Form/Form.bs.js";
 import * as Formality__ReactUpdate from "re-formality/src/Formality__ReactUpdate.bs.js";
 
+var validators_time = {
+  strategy: /* OnSubmit */4,
+  validate: (function (param) {
+      return {
+              TAG: /* Ok */0,
+              _0: param.time.replace(/_/g, "0")
+            };
+    })
+};
+
 var validators = {
   title: undefined,
   description: undefined,
-  time: undefined,
+  time: validators_time,
   theme: undefined
 };
 
@@ -38,7 +48,7 @@ function initialState(input) {
         };
 }
 
-function validateForm(input, param, param$1) {
+function validateForm(input, validators, fieldsStatuses) {
   var match_0 = {
     TAG: /* Ok */0,
     _0: input.title
@@ -47,10 +57,8 @@ function validateForm(input, param, param$1) {
     TAG: /* Ok */0,
     _0: input.description
   };
-  var match_0$2 = {
-    TAG: /* Ok */0,
-    _0: input.time
-  };
+  var match = fieldsStatuses.time;
+  var match_0$2 = match ? match._0 : Curry._1(validators.time.validate, input);
   var match_0$3 = {
     TAG: /* Ok */0,
     _0: input.theme
@@ -89,7 +97,7 @@ function validateForm(input, param, param$1) {
                     },
                     time: /* Dirty */{
                       _0: timeResult,
-                      _1: /* Hidden */1
+                      _1: /* Shown */0
                     },
                     theme: /* Dirty */{
                       _0: themeResult,
@@ -116,7 +124,7 @@ function validateForm(input, param, param$1) {
             },
             time: /* Dirty */{
               _0: match_0$2,
-              _1: /* Hidden */1
+              _1: /* Shown */0
             },
             theme: /* Dirty */{
               _0: match_0$3,
@@ -183,7 +191,7 @@ function useForm(initialInput, onSubmit) {
                     return /* NoUpdate */0;
                   }
               case /* BlurTimeField */2 :
-                  var result$2 = Formality.validateFieldOnBlurWithoutValidator(state.input.time, state.fieldsStatuses.time, (function (status) {
+                  var result$2 = Formality.validateFieldOnBlurWithValidator(state.input, state.fieldsStatuses.time, validators_time, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
                                   title: init.title,
@@ -380,7 +388,7 @@ function useForm(initialInput, onSubmit) {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$2,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$2.time, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithValidator(nextInput$2, state.fieldsStatuses.time, state.submissionStatus, validators_time, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
                                             title: init.title,

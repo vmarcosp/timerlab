@@ -19,8 +19,19 @@ include [%form
           };
           let validators = {
             name: None,
-            primaryColor: None,
-            secondaryColor: None,
+            primaryColor: {
+              strategy: OnSubmit,
+              validate: ({primaryColor}) =>
+                Ok(
+                  primaryColor === ""
+                    ? Theme.Colors.(primaryRaw->toHex) : primaryColor,
+                ),
+            },
+            secondaryColor: {
+              strategy: OnSubmit,
+              validate: ({secondaryColor}) =>
+                Ok(secondaryColor === "" ? "#000" : secondaryColor),
+            },
             backgroundColor: {
               strategy: OnSubmit,
               validate: ({backgroundColor}) =>

@@ -148,7 +148,10 @@ var previewContainer = Curry._1(Css.style, {
 
 var preview = Curry._1(Css.style, {
       hd: Css.maxWidth(Css.px(124)),
-      tl: /* [] */0
+      tl: {
+        hd: Css.borderRadius(Css.px(4)),
+        tl: /* [] */0
+      }
     });
 
 export {

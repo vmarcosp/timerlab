@@ -67,7 +67,10 @@ function wrapper(visible) {
                     hd: Css.justifyContent(Css.center),
                     tl: {
                       hd: Css.alignItems(Css.center),
-                      tl: /* [] */0
+                      tl: {
+                        hd: Css.zIndex(1000),
+                        tl: /* [] */0
+                      }
                     }
                   }
                 }

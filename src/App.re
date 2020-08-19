@@ -1,20 +1,43 @@
-open ThemeHook;
+open TimerHook;
+
+let onSubmit = (_, _) => ();
 
 [@react.component]
 let make = () => {
   let (
+    onSubmit,
     openCreateTheme,
     createNewTheme,
     onEditTheme,
     updateTheme,
     closeModal,
+    toggleVisible,
+    visible,
     status,
     themes,
+    initialInput,
+    timer,
+    (config, theme),
   ) =
-    useThemes();
+    useTimer();
 
   <>
-    <Sidebar themes onEditTheme onCreateTheme=openCreateTheme />
+    <Sidebar
+      onSubmit
+      initialInput
+      visible
+      themes
+      onEditTheme
+      onCreateTheme=openCreateTheme
+    />
+    <TimerPreview
+      timer
+      theme
+      title={config.title}
+      description={config.description}
+      fullWidth=visible
+      onToggle=toggleVisible
+    />
     <ThemeModal
       initialValues
       onFinish=createNewTheme

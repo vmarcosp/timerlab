@@ -6,7 +6,9 @@ let make = (~label as labelValue=?, ~children, ~onChange=?, ~value=?) => {
        | Some(value) => <Label> value </Label>
        | None => React.null
        }}
-      <select ?value ?onChange className=select> children </select>
+      <div className=wrapper>
+        <select ?value ?onChange className=select> children </select>
+      </div>
     </div>
   );
 };
