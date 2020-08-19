@@ -33,6 +33,7 @@ let make = () => {
     <TimerPreview
       timer
       theme
+      time={config.time}
       title={config.title}
       description={config.description}
       fullWidth=visible

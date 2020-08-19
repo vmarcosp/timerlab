@@ -7,6 +7,7 @@ let make =
       ~fullWidth,
       ~theme,
       ~timer: UseTimerHook.useTimerResult,
+      ~time,
     ) => {
   let UseTimerHook.{minutes, seconds} = timer;
   TimerPreviewStyles.(
@@ -18,7 +19,10 @@ let make =
           onClick=onToggle
         />
         <div>
-          <Controls.Reset color={theme.primaryColor} onClick={timer.reset} />
+          <Controls.Reset
+            color={theme.primaryColor}
+            onClick={() => timer.setTimer(time)}
+          />
           <Controls.TogglePlay
             color={theme.primaryColor}
             onPause={timer.pause}

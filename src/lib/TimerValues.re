@@ -12,7 +12,7 @@ let initialConfig: SidebarForm.output = {
 
 let cleanTheme = {
   id: cleanThemeId,
-  name: "Clean",
+  name: "Timerlab",
   primaryColor: Theme.Colors.(primaryRaw->toHex),
   secondaryColor: Theme.Colors.(backgroundRaw->toHex),
   background: Color("#fff"),
@@ -21,14 +21,37 @@ let cleanTheme = {
 
 let darkTheme = {
   id: darkThemeId,
-  name: "Dark",
+  name: "Timerlab Dark",
   primaryColor: Theme.Colors.(primaryRaw->toHex),
   secondaryColor: "#FFF",
   background: Color(Theme.Colors.(backgroundRaw->toHex)),
-  default: false,
+  default: true,
 };
 
-let defaultThemes = [|darkTheme, cleanTheme|];
+let lukinCleanTheme = {
+  id: ID.generate(),
+  name: "Lukin",
+  primaryColor: "#f36",
+  secondaryColor: "#00000",
+  background: Color("#fff"),
+  default: true,
+};
+
+let lukinDarkTheme = {
+  id: ID.generate(),
+  name: "Lukin Dark",
+  primaryColor: "#f36",
+  secondaryColor: "#fff",
+  background: Color("#000"),
+  default: true,
+};
+
+let defaultThemes = [|
+  cleanTheme,
+  darkTheme,
+  lukinCleanTheme,
+  lukinDarkTheme,
+|];
 
 let initialValues: ThemeForm.input = {
   name: "",
