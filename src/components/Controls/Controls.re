@@ -23,16 +23,14 @@ let icon = isOpen =>
 
 module TogglePlay = {
   [@react.component]
-  let make = (~onPause, ~onPlay, ~color) => {
-    let (state, setState) = React.useState(_ => false);
-
+  let make = (~onPause, ~onPlay, ~color, ~status, ~toggleTimer) => {
     <button
       onClick={_ => {
-        setState(_ => !state);
-        state ? onPause() : onPlay();
+        toggleTimer(_ => !status);
+        status ? onPause() : onPlay();
       }}
       className=button>
-      {state ? <PauseIcon color /> : <PlayIcon color />}
+      {status ? <PauseIcon color /> : <PlayIcon color />}
     </button>;
   };
 };
