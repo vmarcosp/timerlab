@@ -8,18 +8,14 @@ import * as UploaderStyles$Timerlab from "./UploaderStyles.bs.js";
 var icon = require("./upload-icon.svg");
 
 function Uploader(Props) {
-  var match = UploaderHook$Timerlab.useUploader(undefined);
-  var file = match[2];
-  if (file !== undefined) {
-    return React.createElement(ImagePreview$Timerlab.make, {
-                src: file,
-                onRemove: match[1]
-              });
-  } else {
+  var onChange = Props.onChange;
+  var value = Props.value;
+  var match = UploaderHook$Timerlab.useUploader(onChange);
+  if (value === "") {
     return React.createElement("label", {
                 className: UploaderStyles$Timerlab.wrapper
               }, React.createElement("input", {
-                    ref: match[3],
+                    ref: match[2],
                     accept: ".png,.jpg",
                     type: "file",
                     onChange: match[0]
@@ -28,7 +24,12 @@ function Uploader(Props) {
                     src: icon
                   }), React.createElement("p", {
                     className: UploaderStyles$Timerlab.label
-                  }, "Click here to select a file"));
+                  }, "Click here to select a image"));
+  } else {
+    return React.createElement(ImagePreview$Timerlab.make, {
+                src: value,
+                onRemove: match[1]
+              });
   }
 }
 

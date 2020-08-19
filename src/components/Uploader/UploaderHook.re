@@ -7,12 +7,11 @@ let readFile = (cb, event) => {
   ();
 };
 
-let useUploader = () => {
+let useUploader = onChange => {
   let inputRef = React.useRef(Js.Nullable.null);
-  let (file, setFile) = React.useState(_ => None);
 
-  let onUploadImage = readFile(result => setFile(_ => Some(result)));
-  let removePreview = () => setFile(_ => None);
+  let onUploadImage = readFile(result => {onChange(result)});
+  let removePreview = () => onChange("");
 
-  (onUploadImage, removePreview, file, inputRef);
+  (onUploadImage, removePreview, inputRef);
 };

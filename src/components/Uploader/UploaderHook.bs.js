@@ -14,28 +14,17 @@ function readFile(cb, $$event) {
   
 }
 
-function useUploader(param) {
+function useUploader(onChange) {
   var inputRef = React.useRef(null);
-  var match = React.useState(function () {
-        
-      });
-  var setFile = match[1];
   var onUploadImage = function (param) {
-    return readFile((function (result) {
-                  return Curry._1(setFile, (function (param) {
-                                return result;
-                              }));
-                }), param);
+    return readFile(Curry.__1(onChange), param);
   };
   var removePreview = function (param) {
-    return Curry._1(setFile, (function (param) {
-                  
-                }));
+    return Curry._1(onChange, "");
   };
   return [
           onUploadImage,
           removePreview,
-          match[0],
           inputRef
         ];
 }
