@@ -32,7 +32,7 @@ var input = Curry._1(Css.style, {
                         tl: {
                           hd: Css.transitionDuration(400),
                           tl: {
-                            hd: Css.marginBottom(Css.rem(1.5)),
+                            hd: Css.marginBottom(Css.rem(1.25)),
                             tl: {
                               hd: Css.placeholder({
                                     hd: Css.color(Css.hex("6F5D7A")),

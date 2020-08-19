@@ -15,6 +15,6 @@ let input =
     borderRadius(2->px),
     focus([boxShadow(Shadow.box(~spread=2->px, Theme.Colors.primary))]),
     transitionDuration(400),
-    marginBottom(1.5->rem),
+    marginBottom(1.25->rem),
     placeholder([color("6F5D7A"->hex)]),
   ]);
