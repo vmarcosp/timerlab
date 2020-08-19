@@ -16,7 +16,7 @@ let make = (~onChange, ~value) => {
           type_="file"
         />
         <img src=icon alt="Upload icon" />
-        <p className=label> "Click here to select a an image"->React.string </p>
+        <p className=label> "Click here to select an image"->React.string </p>
       </label>
     | result => <ImagePreview onRemove=removePreview src=result />
     }
