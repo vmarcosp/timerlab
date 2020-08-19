@@ -7,7 +7,7 @@ let orContainer =
       Theme.Fonts.text,
       textAlign(center),
       margin2(~v=zero, ~h=auto),
-      marginBottom(1.25->rem),
+      marginBottom(1.->rem),
       display(block),
       fontWeight(`num(500)),
     ])

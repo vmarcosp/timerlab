@@ -44,13 +44,13 @@ let make =
         </div>
       </div>
       <div className=content>
-        <h1 className={title(theme.secondaryColor)}>
+        <h1 className={title(theme.primaryColor)}>
           titleValue->React.string
         </h1>
-        <h2 className={subtitle(theme.primaryColor)}>
+        <h2 className={subtitle(theme.secondaryColor)}>
           descriptionValue->React.string
         </h2>
-        <p className={timerValue(theme.secondaryColor)}>
+        <p className={timerValue(theme.primaryColor)}>
           {j|$(minutes):$(seconds)|j}->React.string
         </p>
       </div>

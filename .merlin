@@ -49,6 +49,8 @@ S src/components/Controls
 B lib/bs/src/components/Controls
 S src/components/ThemeSelect
 B lib/bs/src/components/ThemeSelect
+S src/components/InputRange
+B lib/bs/src/components/InputRange
 S src/components/Label
 B lib/bs/src/components/Label
 S src/components/Input

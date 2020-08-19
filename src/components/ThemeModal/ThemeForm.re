@@ -9,6 +9,8 @@ include [%form
             secondaryColor: string,
             backgroundColor: string,
             backgroundImage: string,
+            overlayColor: string,
+            opacity: float,
           };
           type output = {
             name: string,
@@ -16,9 +18,13 @@ include [%form
             secondaryColor: string,
             backgroundColor: option(string),
             backgroundImage: option(string),
+            overlayColor: string,
+            opacity: float,
           };
           let validators = {
             name: None,
+            overlayColor: None,
+            opacity: None,
             primaryColor: {
               strategy: OnSubmit,
               validate: ({primaryColor}) =>
@@ -77,4 +83,14 @@ let updateBackgroundImage = (form, result) =>
   form.updateBackgroundImage(
     (input: input, backgroundImage) => {...input, backgroundImage},
     result,
+  );
+
+let updateOverlayColor = form =>
+  handleChange(form.updateOverlayColor, (input: input, overlayColor) =>
+    {...input, overlayColor}
+  );
+
+let updateOpacity = form =>
+  handleChange(form.updateOpacity, (input: input, opacity) =>
+    {...input, opacity}
   );

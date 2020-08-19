@@ -17,6 +17,8 @@ let cleanTheme = {
   secondaryColor: Theme.Colors.(backgroundRaw->toHex),
   background: Color("#fff"),
   default: true,
+  overlayColor: "",
+  opacity: 0.0,
 };
 
 let darkTheme = {
@@ -26,6 +28,8 @@ let darkTheme = {
   secondaryColor: "#FFF",
   background: Color(Theme.Colors.(backgroundRaw->toHex)),
   default: true,
+  overlayColor: "",
+  opacity: 0.0,
 };
 
 let lukinCleanTheme = {
@@ -35,6 +39,8 @@ let lukinCleanTheme = {
   secondaryColor: "#00000",
   background: Color("#fff"),
   default: true,
+  overlayColor: "",
+  opacity: 0.0,
 };
 
 let lukinDarkTheme = {
@@ -44,6 +50,8 @@ let lukinDarkTheme = {
   secondaryColor: "#fff",
   background: Color("#000"),
   default: true,
+  overlayColor: "",
+  opacity: 0.0,
 };
 
 let defaultThemes = [|
@@ -59,4 +67,6 @@ let initialValues: ThemeForm.input = {
   secondaryColor: cleanTheme.secondaryColor,
   backgroundColor: "#FFF",
   backgroundImage: "",
+  overlayColor: "#000",
+  opacity: 0.7,
 };

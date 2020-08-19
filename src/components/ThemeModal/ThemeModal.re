@@ -41,7 +41,11 @@ let make =
         <OrLabel />
         <Uploader
           value={form.input.backgroundImage}
+          opacity={form.input.opacity}
+          overlayColor={form.input.overlayColor}
           onChange={form->updateBackgroundImage}
+          onOpacityChange={form->updateOpacity}
+          onOverlayChange={form->updateOverlayColor}
         />
       </Modal>
     </Form>

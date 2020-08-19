@@ -33,7 +33,8 @@ let wrapper = visible => {
 
 let modal =
   style([
-    minWidth(425->px),
+    width(500->px),
+    maxWidth(500->px),
     background(Theme.Colors.background),
     borderRadius(2->px),
   ]);

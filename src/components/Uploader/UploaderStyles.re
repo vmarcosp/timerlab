@@ -52,8 +52,13 @@ let previewContainer =
   style([
     position(relative),
     width(124->px),
+    marginTop(0.25->rem),
     selector(buttonSelector, [opacity(0.)]),
     hover([selector(buttonSelector, [opacity(1.)])]),
   ]);
 
 let preview = style([maxWidth(124->px), borderRadius(4->px)]);
+
+let controls = style([display(`flex)]);
+
+let imageOptions = style([fullWidth, marginLeft(1.5->rem)]);

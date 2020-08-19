@@ -9,7 +9,7 @@ let wrapper = (visible, theme) => {
     | Image(image) => [
         background(`url(image)),
         backgroundSize(`cover),
-        backgroundPosition(`center),
+        backgroundPosition(`bottom),
         after([
           contentRule(`text(" ")),
           position(absolute),
@@ -17,7 +17,8 @@ let wrapper = (visible, theme) => {
           fullWidth,
           top(zero),
           left(zero),
-          backgroundColor(`rgba((0, 0, 0, 0.75))),
+          unsafe("backgroundColor", theme.overlayColor),
+          opacity(theme.opacity),
           zIndex(2),
         ]),
       ]
@@ -54,18 +55,18 @@ let content =
     zIndex(10),
   ]);
 
-let title = secondaryColor =>
+let title = color =>
   style([
-    unsafe("color", secondaryColor),
+    unsafe("color", color),
     Theme.Fonts.text,
     fontSize(3.->rem),
     fontWeight(`num(500)),
     margin(zero),
   ]);
 
-let timerValue = secondaryColor =>
+let timerValue = color =>
   style([
-    unsafe("color", secondaryColor),
+    unsafe("color", color),
     fontSize(124->px),
     Theme.Fonts.text,
     fontWeight(`bold),
@@ -73,9 +74,9 @@ let timerValue = secondaryColor =>
     marginTop(4.->rem),
   ]);
 
-let subtitle = primaryColor =>
+let subtitle = color =>
   style([
-    unsafe("color", primaryColor),
+    unsafe("color", color),
     Theme.Fonts.text,
     fontSize(1.75->rem),
     fontWeight(`num(400)),

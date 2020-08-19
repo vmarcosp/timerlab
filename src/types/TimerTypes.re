@@ -9,6 +9,8 @@ type theme = {
   secondaryColor: string,
   background,
   default: bool,
+  overlayColor: string,
+  opacity: float,
 };
 
 type status =
@@ -31,6 +33,8 @@ let fromThemeForm = (output: ThemeForm.output, id) => {
   background:
     makeBackground((output.backgroundColor, output.backgroundImage)),
   default: false,
+  overlayColor: output.overlayColor,
+  opacity: output.opacity,
 };
 
 let toInput: theme => ThemeForm.input =
@@ -38,6 +42,8 @@ let toInput: theme => ThemeForm.input =
     name: theme.name,
     primaryColor: theme.primaryColor,
     secondaryColor: theme.secondaryColor,
+    overlayColor: theme.overlayColor,
+    opacity: theme.opacity,
     backgroundColor:
       switch (theme.background) {
       | Color(color) => color
