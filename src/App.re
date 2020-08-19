@@ -1,25 +1,36 @@
 open ThemeHook;
 
-let initialValues: ThemeForm.input = {
-  id: "",
-  name: "",
-  primaryColor: "",
-  secondaryColor: "",
-  background: "",
-};
-
 [@react.component]
 let make = () => {
-  let (openCreateTheme, createNewTheme, closeNewTheme, status, themes) =
+  let (
+    openCreateTheme,
+    createNewTheme,
+    onEditTheme,
+    updateTheme,
+    closeModal,
+    status,
+    themes,
+  ) =
     useThemes();
 
   <>
-    <Sidebar themes onCreateTheme=openCreateTheme />
+    <Sidebar themes onEditTheme onCreateTheme=openCreateTheme />
     <ThemeModal
       initialValues
       onFinish=createNewTheme
-      onCancel=closeNewTheme
+      onCancel=closeModal
       visible={status === IsCreating}
     />
+    {switch (status) {
+     | IsEditing(id, values) =>
+       <ThemeModal
+         initialValues=values
+         onFinish={updateTheme(id)}
+         onCancel=closeModal
+         visible=true
+         title="Edit theme"
+       />
+     | _ => React.null
+     }}
   </>;
 };

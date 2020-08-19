@@ -1,7 +1,5 @@
 open TimerTypes;
 
-let newKey = ThemeSelect.newKey;
-
 let darkThemeId = ID.generate();
 let cleanThemeId = ID.generate();
 
@@ -11,7 +9,7 @@ let defaultThemes = [|
     name: "Clean",
     primaryColor: Theme.Colors.primaryRaw,
     secondaryColor: Theme.Colors.backgroundRaw,
-    background: "fff",
+    background: Color("fff"),
     default: true,
   },
   {
@@ -19,27 +17,61 @@ let defaultThemes = [|
     name: "Dark",
     primaryColor: Theme.Colors.primaryRaw,
     secondaryColor: "fff",
-    background: Theme.Colors.backgroundRaw,
+    background: Color(Theme.Colors.backgroundRaw),
     default: false,
   },
 |];
 
-type status =
-  | IsCreating
-  | IsEditing
-  | Default;
+let initialValues: ThemeForm.input = {
+  name: "",
+  primaryColor: "",
+  secondaryColor: "",
+  backgroundColor: "",
+  backgroundImage: "",
+};
+
+let findTheme = (id, newTheme, theme) =>
+  theme.id === id ? fromThemeForm(newTheme, id) : theme;
 
 let useThemes = () => {
   let (status, setStatus) = React.useState(_ => Default);
-  let (themes, _) = React.useState(_ => defaultThemes);
+  let (themes, setThemes) = React.useState(_ => defaultThemes);
 
   let openCreateTheme = _ => setStatus(_ => IsCreating);
 
-  let closeNewTheme = () => setStatus(_ => Default);
+  let closeModal = () => setStatus(_ => Default);
 
-  let onCreateNewTheme = (values, _) => {
-    Js.log(values);
+  let onCreateNewTheme = (values, form: ThemeForm.submissionForm) => {
+    let newTheme = fromThemeForm(values, ID.generate());
+    let allThemes = Array.concat(themes, [|newTheme|]);
+    setThemes(_ => allThemes);
+    closeModal();
+    form.reset();
   };
 
-  (openCreateTheme, onCreateNewTheme, closeNewTheme, status, themes);
+  let onEditTheme = themeId => {
+    let maybe = themes->Array.getBy(theme => theme.id == themeId);
+    switch (maybe) {
+    | Some(theme) => setStatus(_ => IsEditing(themeId, theme->toInput))
+    | None => ()
+    };
+  };
+
+  let updateTheme = (themeId, updatedTheme, form: ThemeForm.submissionForm) => {
+    let allThemes = themes->Array.map(findTheme(themeId, updatedTheme));
+    setThemes(_ => allThemes);
+    closeModal();
+    form.reset();
+    ();
+  };
+
+  (
+    openCreateTheme,
+    onCreateNewTheme,
+    onEditTheme,
+    updateTheme,
+    closeModal,
+    status,
+    themes,
+  );
 };

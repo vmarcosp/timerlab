@@ -39,6 +39,8 @@ S src/components/Link
 B lib/bs/src/components/Link
 S src/components/Button
 B lib/bs/src/components/Button
+S src/components/OrLabel
+B lib/bs/src/components/OrLabel
 S src/components/ThemeSelect
 B lib/bs/src/components/ThemeSelect
 S src/components/Label

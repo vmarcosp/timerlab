@@ -4,7 +4,7 @@ let make = (~children, ~title as modalTitle, ~onCancel, ~visible=false) => {
     <div className={wrapper(visible)}>
       <div className=modal>
         <div className=header>
-          <h2 className=title> modalTitle->React.string </h2>
+          <h3 className=title> modalTitle->React.string </h3>
         </div>
         <div className=content> children </div>
         <div className=footer>

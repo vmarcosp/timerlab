@@ -1,5 +1,6 @@
 
 
+import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
 import * as Form$Timerlab from "../Form/Form.bs.js";
 import * as Input$Timerlab from "../Input/Input.bs.js";
@@ -15,6 +16,7 @@ import * as SidebarStyles$Timerlab from "./SidebarStyles.bs.js";
 function Sidebar(Props) {
   var themes = Props.themes;
   var onCreateTheme = Props.onCreateTheme;
+  var onEditTheme = Props.onEditTheme;
   var form = SidebarHook$Timerlab.useSidebar(undefined);
   return React.createElement("aside", {
               className: SidebarStyles$Timerlab.sidebar
@@ -44,7 +46,11 @@ function Sidebar(Props) {
                           value: form.input.theme
                         }), React.createElement(ThemeActions$Timerlab.make, {
                           children: null
-                        }, SidebarHook$Timerlab.canEdit(form.input.theme, themes) ? React.createElement(ThemeActions$Timerlab.Edit.make, {}) : null, React.createElement(ThemeActions$Timerlab.Add.make, {
+                        }, SidebarHook$Timerlab.canEdit(form.input.theme, themes) ? React.createElement(ThemeActions$Timerlab.Edit.make, {
+                                onClick: (function (param) {
+                                    return Curry._1(onEditTheme, form.input.theme);
+                                  })
+                              }) : null, React.createElement(ThemeActions$Timerlab.Add.make, {
                               onClick: onCreateTheme
                             }))), React.createElement(SidebarFooter$Timerlab.make, {})));
 }

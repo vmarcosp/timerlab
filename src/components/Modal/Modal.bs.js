@@ -18,7 +18,7 @@ function Modal(Props) {
                   className: ModalStyles$Timerlab.modal
                 }, React.createElement("div", {
                       className: ModalStyles$Timerlab.header
-                    }, React.createElement("h2", {
+                    }, React.createElement("h3", {
                           className: ModalStyles$Timerlab.title
                         }, modalTitle)), React.createElement("div", {
                       className: ModalStyles$Timerlab.content

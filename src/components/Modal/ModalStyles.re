@@ -45,7 +45,7 @@ let title =
     margin(zero),
   ]);
 
-let header = style([padding(1.5->rem)]);
-let content = style([padding(1.5->rem), flex(`num(3.))]);
+let header = style([paddingVH(1.25->rem, 1.5->rem)]);
+let content = style([paddingVH(1.->rem, 1.5->rem), flex(`num(3.))]);
 let footer =
   style([padding(1.5->rem), display(`flex), justifyContent(flexEnd)]);

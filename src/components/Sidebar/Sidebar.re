@@ -2,7 +2,7 @@ open SidebarForm;
 open SidebarHook;
 
 [@react.component]
-let make = (~themes, ~onCreateTheme) => {
+let make = (~themes, ~onCreateTheme, ~onEditTheme) => {
   let form = useSidebar();
 
   SidebarStyles.(
@@ -31,7 +31,10 @@ let make = (~themes, ~onCreateTheme) => {
           />
           <ThemeActions>
             {canEdit(form.input.theme, themes)
-               ? <ThemeActions.Edit /> : React.null}
+               ? <ThemeActions.Edit
+                   onClick={() => onEditTheme(form.input.theme)}
+                 />
+               : React.null}
             <ThemeActions.Add onClick=onCreateTheme />
           </ThemeActions>
         </div>

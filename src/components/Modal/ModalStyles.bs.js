@@ -115,12 +115,12 @@ var title = Curry._1(Css.style, {
     });
 
 var header = Curry._1(Css.style, {
-      hd: Css.padding(Css.rem(1.5)),
+      hd: CssHelpers$Timerlab.paddingVH(Css.rem(1.25), Css.rem(1.5)),
       tl: /* [] */0
     });
 
 var content = Curry._1(Css.style, {
-      hd: Css.padding(Css.rem(1.5)),
+      hd: CssHelpers$Timerlab.paddingVH(Css.rem(1), Css.rem(1.5)),
       tl: {
         hd: Css.flex({
               NAME: "num",
