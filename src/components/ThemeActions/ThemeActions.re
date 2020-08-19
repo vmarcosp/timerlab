@@ -41,8 +41,13 @@ module Add = {
 
 module Edit = {
   [@react.component]
-  let make = () => {
-    <button className={button("FF6635"->Css.hex)}>
+  let make = (~onClick) => {
+    <button
+      onClick={e => {
+        Helpers.preventDefault(e);
+        onClick();
+      }}
+      className={button("FF6635"->Css.hex)}>
       <img src=editIcon />
       "Edit theme"->React.string
     </button>;

@@ -89,8 +89,13 @@ var Add = {
 };
 
 function ThemeActions$Edit(Props) {
+  var onClick = Props.onClick;
   return React.createElement("button", {
-              className: button(Css.hex("FF6635"))
+              className: button(Css.hex("FF6635")),
+              onClick: (function (e) {
+                  Helpers$Timerlab.preventDefault(e);
+                  return Curry._1(onClick, undefined);
+                })
             }, React.createElement("img", {
                   src: editIcon
                 }), "Edit theme");

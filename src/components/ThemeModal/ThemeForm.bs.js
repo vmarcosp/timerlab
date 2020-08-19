@@ -7,21 +7,57 @@ import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Form$Timerlab from "../Form/Form.bs.js";
 import * as Formality__ReactUpdate from "re-formality/src/Formality__ReactUpdate.bs.js";
 
+var validators_backgroundImage = {
+  strategy: /* OnSubmit */4,
+  validate: (function (param) {
+      var backgroundImage = param.backgroundImage;
+      if (backgroundImage === "") {
+        return {
+                TAG: /* Ok */0,
+                _0: undefined
+              };
+      } else {
+        return {
+                TAG: /* Ok */0,
+                _0: backgroundImage
+              };
+      }
+    })
+};
+
+var validators_backgroundColor = {
+  strategy: /* OnSubmit */4,
+  validate: (function (param) {
+      var backgroundColor = param.backgroundColor;
+      if (backgroundColor === "") {
+        return {
+                TAG: /* Ok */0,
+                _0: undefined
+              };
+      } else {
+        return {
+                TAG: /* Ok */0,
+                _0: backgroundColor
+              };
+      }
+    })
+};
+
 var validators = {
-  id: undefined,
-  name: undefined,
-  primaryColor: undefined,
+  backgroundImage: validators_backgroundImage,
+  backgroundColor: validators_backgroundColor,
   secondaryColor: undefined,
-  background: undefined
+  primaryColor: undefined,
+  name: undefined
 };
 
 function initialFieldsStatuses(_input) {
   return {
-          id: /* Pristine */0,
-          name: /* Pristine */0,
-          primaryColor: /* Pristine */0,
+          backgroundImage: /* Pristine */0,
+          backgroundColor: /* Pristine */0,
           secondaryColor: /* Pristine */0,
-          background: /* Pristine */0
+          primaryColor: /* Pristine */0,
+          name: /* Pristine */0
         };
 }
 
@@ -35,81 +71,77 @@ function initialState(input) {
         };
 }
 
-function validateForm(input, param, param$1) {
-  var match_0 = {
-    TAG: /* Ok */0,
-    _0: input.id
-  };
-  var match_0$1 = {
-    TAG: /* Ok */0,
-    _0: input.name
-  };
+function validateForm(input, validators, fieldsStatuses) {
+  var match = fieldsStatuses.backgroundImage;
+  var match_0 = match ? match._0 : Curry._1(validators.backgroundImage.validate, input);
+  var match$1 = fieldsStatuses.backgroundColor;
+  var match_0$1 = match$1 ? match$1._0 : Curry._1(validators.backgroundColor.validate, input);
   var match_0$2 = {
-    TAG: /* Ok */0,
-    _0: input.primaryColor
-  };
-  var match_0$3 = {
     TAG: /* Ok */0,
     _0: input.secondaryColor
   };
+  var match_0$3 = {
+    TAG: /* Ok */0,
+    _0: input.primaryColor
+  };
   var match_0$4 = {
     TAG: /* Ok */0,
-    _0: input.background
+    _0: input.name
   };
-  var idResult = match_0;
-  var idResult$1;
-  if (idResult.TAG) {
-    idResult$1 = idResult;
+  var backgroundImageResult = match_0;
+  var backgroundImageResult$1;
+  if (backgroundImageResult.TAG) {
+    backgroundImageResult$1 = backgroundImageResult;
   } else {
-    var nameResult = match_0$1;
-    if (nameResult.TAG) {
-      idResult$1 = idResult;
+    var backgroundColorResult = match_0$1;
+    if (backgroundColorResult.TAG) {
+      backgroundImageResult$1 = backgroundImageResult;
     } else {
-      var primaryColorResult = match_0$2;
-      if (primaryColorResult.TAG) {
-        idResult$1 = idResult;
+      var secondaryColorResult = match_0$2;
+      if (secondaryColorResult.TAG) {
+        backgroundImageResult$1 = backgroundImageResult;
       } else {
-        var secondaryColorResult = match_0$3;
-        if (secondaryColorResult.TAG) {
-          idResult$1 = idResult;
+        var primaryColorResult = match_0$3;
+        if (primaryColorResult.TAG) {
+          backgroundImageResult$1 = backgroundImageResult;
         } else {
-          var backgroundResult = match_0$4;
-          if (!backgroundResult.TAG) {
+          var nameResult = match_0$4;
+          if (!nameResult.TAG) {
             return {
                     TAG: /* Valid */0,
                     output: {
-                      id: idResult._0,
                       name: nameResult._0,
                       primaryColor: primaryColorResult._0,
                       secondaryColor: secondaryColorResult._0,
-                      background: backgroundResult._0
+                      backgroundColor: backgroundColorResult._0,
+                      backgroundImage: backgroundImageResult._0
                     },
                     fieldsStatuses: {
-                      id: /* Dirty */{
-                        _0: idResult,
-                        _1: /* Hidden */1
+                      backgroundImage: /* Dirty */{
+                        _0: backgroundImageResult,
+                        _1: /* Shown */0
                       },
-                      name: /* Dirty */{
-                        _0: nameResult,
+                      backgroundColor: /* Dirty */{
+                        _0: backgroundColorResult,
+                        _1: /* Shown */0
+                      },
+                      secondaryColor: /* Dirty */{
+                        _0: secondaryColorResult,
                         _1: /* Hidden */1
                       },
                       primaryColor: /* Dirty */{
                         _0: primaryColorResult,
                         _1: /* Hidden */1
                       },
-                      secondaryColor: /* Dirty */{
-                        _0: secondaryColorResult,
-                        _1: /* Hidden */1
-                      },
-                      background: /* Dirty */{
-                        _0: backgroundResult,
+                      name: /* Dirty */{
+                        _0: nameResult,
                         _1: /* Hidden */1
                       }
                     },
                     collectionsStatuses: undefined
                   };
           }
-          idResult$1 = idResult;
+          backgroundImageResult$1 = backgroundImageResult;
         }
       }
     }
@@ -117,23 +149,23 @@ function validateForm(input, param, param$1) {
   return {
           TAG: /* Invalid */1,
           fieldsStatuses: {
-            id: /* Dirty */{
-              _0: idResult$1,
-              _1: /* Hidden */1
+            backgroundImage: /* Dirty */{
+              _0: backgroundImageResult$1,
+              _1: /* Shown */0
             },
-            name: /* Dirty */{
+            backgroundColor: /* Dirty */{
               _0: match_0$1,
-              _1: /* Hidden */1
+              _1: /* Shown */0
             },
-            primaryColor: /* Dirty */{
+            secondaryColor: /* Dirty */{
               _0: match_0$2,
               _1: /* Hidden */1
             },
-            secondaryColor: /* Dirty */{
+            primaryColor: /* Dirty */{
               _0: match_0$3,
               _1: /* Hidden */1
             },
-            background: /* Dirty */{
+            name: /* Dirty */{
               _0: match_0$4,
               _1: /* Hidden */1
             }
@@ -149,15 +181,15 @@ function useForm(initialInput, onSubmit) {
   var match = Formality__ReactUpdate.useReducer(memoizedInitialState, (function (state, action) {
           if (typeof action === "number") {
             switch (action) {
-              case /* BlurIdField */0 :
-                  var result = Formality.validateFieldOnBlurWithoutValidator(state.input.id, state.fieldsStatuses.id, (function (status) {
+              case /* BlurBackgroundImageField */0 :
+                  var result = Formality.validateFieldOnBlurWithValidator(state.input, state.fieldsStatuses.backgroundImage, validators_backgroundImage, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
-                                  id: status,
-                                  name: init.name,
-                                  primaryColor: init.primaryColor,
+                                  backgroundImage: status,
+                                  backgroundColor: init.backgroundColor,
                                   secondaryColor: init.secondaryColor,
-                                  background: init.background
+                                  primaryColor: init.primaryColor,
+                                  name: init.name
                                 };
                         }));
                   if (result !== undefined) {
@@ -174,15 +206,15 @@ function useForm(initialInput, onSubmit) {
                   } else {
                     return /* NoUpdate */0;
                   }
-              case /* BlurNameField */1 :
-                  var result$1 = Formality.validateFieldOnBlurWithoutValidator(state.input.name, state.fieldsStatuses.name, (function (status) {
+              case /* BlurBackgroundColorField */1 :
+                  var result$1 = Formality.validateFieldOnBlurWithValidator(state.input, state.fieldsStatuses.backgroundColor, validators_backgroundColor, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
-                                  id: init.id,
-                                  name: status,
-                                  primaryColor: init.primaryColor,
+                                  backgroundImage: init.backgroundImage,
+                                  backgroundColor: status,
                                   secondaryColor: init.secondaryColor,
-                                  background: init.background
+                                  primaryColor: init.primaryColor,
+                                  name: init.name
                                 };
                         }));
                   if (result$1 !== undefined) {
@@ -199,15 +231,15 @@ function useForm(initialInput, onSubmit) {
                   } else {
                     return /* NoUpdate */0;
                   }
-              case /* BlurPrimaryColorField */2 :
-                  var result$2 = Formality.validateFieldOnBlurWithoutValidator(state.input.primaryColor, state.fieldsStatuses.primaryColor, (function (status) {
+              case /* BlurSecondaryColorField */2 :
+                  var result$2 = Formality.validateFieldOnBlurWithoutValidator(state.input.secondaryColor, state.fieldsStatuses.secondaryColor, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
-                                  id: init.id,
-                                  name: init.name,
-                                  primaryColor: status,
-                                  secondaryColor: init.secondaryColor,
-                                  background: init.background
+                                  backgroundImage: init.backgroundImage,
+                                  backgroundColor: init.backgroundColor,
+                                  secondaryColor: status,
+                                  primaryColor: init.primaryColor,
+                                  name: init.name
                                 };
                         }));
                   if (result$2 !== undefined) {
@@ -224,15 +256,15 @@ function useForm(initialInput, onSubmit) {
                   } else {
                     return /* NoUpdate */0;
                   }
-              case /* BlurSecondaryColorField */3 :
-                  var result$3 = Formality.validateFieldOnBlurWithoutValidator(state.input.secondaryColor, state.fieldsStatuses.secondaryColor, (function (status) {
+              case /* BlurPrimaryColorField */3 :
+                  var result$3 = Formality.validateFieldOnBlurWithoutValidator(state.input.primaryColor, state.fieldsStatuses.primaryColor, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
-                                  id: init.id,
-                                  name: init.name,
-                                  primaryColor: init.primaryColor,
-                                  secondaryColor: status,
-                                  background: init.background
+                                  backgroundImage: init.backgroundImage,
+                                  backgroundColor: init.backgroundColor,
+                                  secondaryColor: init.secondaryColor,
+                                  primaryColor: status,
+                                  name: init.name
                                 };
                         }));
                   if (result$3 !== undefined) {
@@ -249,15 +281,15 @@ function useForm(initialInput, onSubmit) {
                   } else {
                     return /* NoUpdate */0;
                   }
-              case /* BlurBackgroundField */4 :
-                  var result$4 = Formality.validateFieldOnBlurWithoutValidator(state.input.background, state.fieldsStatuses.background, (function (status) {
+              case /* BlurNameField */4 :
+                  var result$4 = Formality.validateFieldOnBlurWithoutValidator(state.input.name, state.fieldsStatuses.name, (function (status) {
                           var init = state.fieldsStatuses;
                           return {
-                                  id: init.id,
-                                  name: init.name,
-                                  primaryColor: init.primaryColor,
+                                  backgroundImage: init.backgroundImage,
+                                  backgroundColor: init.backgroundColor,
                                   secondaryColor: init.secondaryColor,
-                                  background: status
+                                  primaryColor: init.primaryColor,
+                                  name: status
                                 };
                         }));
                   if (result$4 !== undefined) {
@@ -378,20 +410,20 @@ function useForm(initialInput, onSubmit) {
             }
           } else {
             switch (action.TAG | 0) {
-              case /* UpdateIdField */0 :
+              case /* UpdateBackgroundImageField */0 :
                   var nextInput = Curry._1(action._0, state.input);
                   return {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput.id, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithValidator(nextInput, state.fieldsStatuses.backgroundImage, state.submissionStatus, validators_backgroundImage, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
-                                            id: status,
-                                            name: init.name,
-                                            primaryColor: init.primaryColor,
+                                            backgroundImage: status,
+                                            backgroundColor: init.backgroundColor,
                                             secondaryColor: init.secondaryColor,
-                                            background: init.background
+                                            primaryColor: init.primaryColor,
+                                            name: init.name
                                           };
                                   })),
                             collectionsStatuses: state.collectionsStatuses,
@@ -399,20 +431,20 @@ function useForm(initialInput, onSubmit) {
                             submissionStatus: state.submissionStatus
                           }
                         };
-              case /* UpdateNameField */1 :
+              case /* UpdateBackgroundColorField */1 :
                   var nextInput$1 = Curry._1(action._0, state.input);
                   return {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$1,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$1.name, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithValidator(nextInput$1, state.fieldsStatuses.backgroundColor, state.submissionStatus, validators_backgroundColor, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
-                                            id: init.id,
-                                            name: status,
-                                            primaryColor: init.primaryColor,
+                                            backgroundImage: init.backgroundImage,
+                                            backgroundColor: status,
                                             secondaryColor: init.secondaryColor,
-                                            background: init.background
+                                            primaryColor: init.primaryColor,
+                                            name: init.name
                                           };
                                   })),
                             collectionsStatuses: state.collectionsStatuses,
@@ -420,20 +452,20 @@ function useForm(initialInput, onSubmit) {
                             submissionStatus: state.submissionStatus
                           }
                         };
-              case /* UpdatePrimaryColorField */2 :
+              case /* UpdateSecondaryColorField */2 :
                   var nextInput$2 = Curry._1(action._0, state.input);
                   return {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$2,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$2.primaryColor, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$2.secondaryColor, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
-                                            id: init.id,
-                                            name: init.name,
-                                            primaryColor: status,
-                                            secondaryColor: init.secondaryColor,
-                                            background: init.background
+                                            backgroundImage: init.backgroundImage,
+                                            backgroundColor: init.backgroundColor,
+                                            secondaryColor: status,
+                                            primaryColor: init.primaryColor,
+                                            name: init.name
                                           };
                                   })),
                             collectionsStatuses: state.collectionsStatuses,
@@ -441,20 +473,20 @@ function useForm(initialInput, onSubmit) {
                             submissionStatus: state.submissionStatus
                           }
                         };
-              case /* UpdateSecondaryColorField */3 :
+              case /* UpdatePrimaryColorField */3 :
                   var nextInput$3 = Curry._1(action._0, state.input);
                   return {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$3,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$3.secondaryColor, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$3.primaryColor, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
-                                            id: init.id,
-                                            name: init.name,
-                                            primaryColor: init.primaryColor,
-                                            secondaryColor: status,
-                                            background: init.background
+                                            backgroundImage: init.backgroundImage,
+                                            backgroundColor: init.backgroundColor,
+                                            secondaryColor: init.secondaryColor,
+                                            primaryColor: status,
+                                            name: init.name
                                           };
                                   })),
                             collectionsStatuses: state.collectionsStatuses,
@@ -462,20 +494,20 @@ function useForm(initialInput, onSubmit) {
                             submissionStatus: state.submissionStatus
                           }
                         };
-              case /* UpdateBackgroundField */4 :
+              case /* UpdateNameField */4 :
                   var nextInput$4 = Curry._1(action._0, state.input);
                   return {
                           TAG: /* Update */0,
                           _0: {
                             input: nextInput$4,
-                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$4.background, (function (status) {
+                            fieldsStatuses: Formality.validateFieldOnChangeWithoutValidator(nextInput$4.name, (function (status) {
                                     var init = state.fieldsStatuses;
                                     return {
-                                            id: init.id,
-                                            name: init.name,
-                                            primaryColor: init.primaryColor,
+                                            backgroundImage: init.backgroundImage,
+                                            backgroundColor: init.backgroundColor,
                                             secondaryColor: init.secondaryColor,
-                                            background: status
+                                            primaryColor: init.primaryColor,
+                                            name: status
                                           };
                                   })),
                             collectionsStatuses: state.collectionsStatuses,
@@ -571,25 +603,17 @@ function useForm(initialInput, onSubmit) {
   var tmp;
   tmp = typeof match$1 === "number" || match$1.TAG ? false : true;
   return {
-          updateId: (function (nextInputFn, nextValue) {
+          updateBackgroundImage: (function (nextInputFn, nextValue) {
               return Curry._1(dispatch, {
-                          TAG: /* UpdateIdField */0,
+                          TAG: /* UpdateBackgroundImageField */0,
                           _0: (function (__x) {
                               return Curry._2(nextInputFn, __x, nextValue);
                             })
                         });
             }),
-          updateName: (function (nextInputFn, nextValue) {
+          updateBackgroundColor: (function (nextInputFn, nextValue) {
               return Curry._1(dispatch, {
-                          TAG: /* UpdateNameField */1,
-                          _0: (function (__x) {
-                              return Curry._2(nextInputFn, __x, nextValue);
-                            })
-                        });
-            }),
-          updatePrimaryColor: (function (nextInputFn, nextValue) {
-              return Curry._1(dispatch, {
-                          TAG: /* UpdatePrimaryColorField */2,
+                          TAG: /* UpdateBackgroundColorField */1,
                           _0: (function (__x) {
                               return Curry._2(nextInputFn, __x, nextValue);
                             })
@@ -597,45 +621,53 @@ function useForm(initialInput, onSubmit) {
             }),
           updateSecondaryColor: (function (nextInputFn, nextValue) {
               return Curry._1(dispatch, {
-                          TAG: /* UpdateSecondaryColorField */3,
+                          TAG: /* UpdateSecondaryColorField */2,
                           _0: (function (__x) {
                               return Curry._2(nextInputFn, __x, nextValue);
                             })
                         });
             }),
-          updateBackground: (function (nextInputFn, nextValue) {
+          updatePrimaryColor: (function (nextInputFn, nextValue) {
               return Curry._1(dispatch, {
-                          TAG: /* UpdateBackgroundField */4,
+                          TAG: /* UpdatePrimaryColorField */3,
                           _0: (function (__x) {
                               return Curry._2(nextInputFn, __x, nextValue);
                             })
                         });
             }),
-          blurId: (function (param) {
-              return Curry._1(dispatch, /* BlurIdField */0);
+          updateName: (function (nextInputFn, nextValue) {
+              return Curry._1(dispatch, {
+                          TAG: /* UpdateNameField */4,
+                          _0: (function (__x) {
+                              return Curry._2(nextInputFn, __x, nextValue);
+                            })
+                        });
             }),
-          blurName: (function (param) {
-              return Curry._1(dispatch, /* BlurNameField */1);
+          blurBackgroundImage: (function (param) {
+              return Curry._1(dispatch, /* BlurBackgroundImageField */0);
             }),
-          blurPrimaryColor: (function (param) {
-              return Curry._1(dispatch, /* BlurPrimaryColorField */2);
+          blurBackgroundColor: (function (param) {
+              return Curry._1(dispatch, /* BlurBackgroundColorField */1);
             }),
           blurSecondaryColor: (function (param) {
-              return Curry._1(dispatch, /* BlurSecondaryColorField */3);
+              return Curry._1(dispatch, /* BlurSecondaryColorField */2);
             }),
-          blurBackground: (function (param) {
-              return Curry._1(dispatch, /* BlurBackgroundField */4);
+          blurPrimaryColor: (function (param) {
+              return Curry._1(dispatch, /* BlurPrimaryColorField */3);
             }),
-          idResult: Formality.exposeFieldResult(state.fieldsStatuses.id),
-          nameResult: Formality.exposeFieldResult(state.fieldsStatuses.name),
-          primaryColorResult: Formality.exposeFieldResult(state.fieldsStatuses.primaryColor),
+          blurName: (function (param) {
+              return Curry._1(dispatch, /* BlurNameField */4);
+            }),
+          backgroundImageResult: Formality.exposeFieldResult(state.fieldsStatuses.backgroundImage),
+          backgroundColorResult: Formality.exposeFieldResult(state.fieldsStatuses.backgroundColor),
           secondaryColorResult: Formality.exposeFieldResult(state.fieldsStatuses.secondaryColor),
-          backgroundResult: Formality.exposeFieldResult(state.fieldsStatuses.background),
+          primaryColorResult: Formality.exposeFieldResult(state.fieldsStatuses.primaryColor),
+          nameResult: Formality.exposeFieldResult(state.fieldsStatuses.name),
           input: state.input,
           status: state.formStatus,
           dirty: (function (param) {
               var match = state.fieldsStatuses;
-              if (match.id || match.name || match.primaryColor || match.secondaryColor || match.background) {
+              if (match.backgroundImage || match.backgroundColor || match.secondaryColor || match.primaryColor || match.name) {
                 return true;
               } else {
                 return false;
@@ -676,11 +708,11 @@ function updateName(form) {
   return function (param) {
     return Form$Timerlab.handleChange(partial_arg, (function (input, name) {
                   return {
-                          id: input.id,
                           name: name,
                           primaryColor: input.primaryColor,
                           secondaryColor: input.secondaryColor,
-                          background: input.background
+                          backgroundColor: input.backgroundColor,
+                          backgroundImage: input.backgroundImage
                         };
                 }), param);
   };
@@ -691,11 +723,11 @@ function updatePrimaryColor(form) {
   return function (param) {
     return Form$Timerlab.handleChange(partial_arg, (function (input, primaryColor) {
                   return {
-                          id: input.id,
                           name: input.name,
                           primaryColor: primaryColor,
                           secondaryColor: input.secondaryColor,
-                          background: input.background
+                          backgroundColor: input.backgroundColor,
+                          backgroundImage: input.backgroundImage
                         };
                 }), param);
   };
@@ -706,29 +738,41 @@ function updateSecondaryColor(form) {
   return function (param) {
     return Form$Timerlab.handleChange(partial_arg, (function (input, secondaryColor) {
                   return {
-                          id: input.id,
                           name: input.name,
                           primaryColor: input.primaryColor,
                           secondaryColor: secondaryColor,
-                          background: input.background
+                          backgroundColor: input.backgroundColor,
+                          backgroundImage: input.backgroundImage
                         };
                 }), param);
   };
 }
 
-function updateBackground(form) {
-  var partial_arg = form.updateBackground;
+function updateBackgroundColor(form) {
+  var partial_arg = form.updateBackgroundColor;
   return function (param) {
-    return Form$Timerlab.handleChange(partial_arg, (function (input, background) {
+    return Form$Timerlab.handleChange(partial_arg, (function (input, backgroundColor) {
                   return {
-                          id: input.id,
                           name: input.name,
                           primaryColor: input.primaryColor,
                           secondaryColor: input.secondaryColor,
-                          background: background
+                          backgroundColor: backgroundColor,
+                          backgroundImage: input.backgroundImage
                         };
                 }), param);
   };
+}
+
+function updateBackgroundImage(form, result) {
+  return Curry._2(form.updateBackgroundImage, (function (input, backgroundImage) {
+                return {
+                        name: input.name,
+                        primaryColor: input.primaryColor,
+                        secondaryColor: input.secondaryColor,
+                        backgroundColor: input.backgroundColor,
+                        backgroundImage: backgroundImage
+                      };
+              }), result);
 }
 
 var initialCollectionsStatuses;
@@ -746,7 +790,8 @@ export {
   updateName ,
   updatePrimaryColor ,
   updateSecondaryColor ,
-  updateBackground ,
+  updateBackgroundColor ,
+  updateBackgroundImage ,
   
 }
 /* react Not a pure module */

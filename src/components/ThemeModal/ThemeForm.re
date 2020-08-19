@@ -1,17 +1,42 @@
+type background =
+  | Image(string)
+  | Color(string);
+
 include [%form
           type input = {
-            id: string,
             name: string,
             primaryColor: string,
             secondaryColor: string,
-            background: string,
+            backgroundColor: string,
+            backgroundImage: string,
+          };
+          type output = {
+            name: string,
+            primaryColor: string,
+            secondaryColor: string,
+            backgroundColor: option(string),
+            backgroundImage: option(string),
           };
           let validators = {
-            id: None,
             name: None,
             primaryColor: None,
             secondaryColor: None,
-            background: None,
+            backgroundColor: {
+              strategy: OnSubmit,
+              validate: ({backgroundColor}) =>
+                switch (backgroundColor) {
+                | "" => Ok(None)
+                | color => Ok(Some(color))
+                },
+            },
+            backgroundImage: {
+              strategy: OnSubmit,
+              validate: ({backgroundImage}) =>
+                switch (backgroundImage) {
+                | "" => Ok(None)
+                | image => Ok(Some(image))
+                },
+            },
           }
         ];
 
@@ -32,7 +57,13 @@ let updateSecondaryColor = form =>
     {...input, secondaryColor}
   );
 
-let updateBackground = form =>
-  handleChange(form.updateBackground, (input: input, background) =>
-    {...input, background}
+let updateBackgroundColor = form =>
+  handleChange(form.updateBackgroundColor, (input: input, backgroundColor) =>
+    {...input, backgroundColor}
+  );
+
+let updateBackgroundImage = (form, result) =>
+  form.updateBackgroundImage(
+    (input: input, backgroundImage) => {...input, backgroundImage},
+    result,
   );
