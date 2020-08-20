@@ -4,8 +4,8 @@ let darkThemeId = ID.generate();
 let cleanThemeId = ID.generate();
 
 let initialConfig: SidebarForm.output = {
-  title: {j|Meetup ReasonBR|j},
-  description: "A cool description here",
+  title: {j|Some title|j},
+  description: "Some description",
   time: "05:00",
   theme: cleanThemeId,
 };
