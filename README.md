@@ -4,8 +4,16 @@
 </p>
 <p align="center">
    <a target="_blank" href="https://timerlab.netlify.app">Site</a> • 
-   <a href="#usage">Preview</a> •
-   <a href="#contributing">Contributing</a>
+   <a href="#preview">Preview</a> •
+   <a href="#license">License</a> •
+   <a target="_blank" href="https://lukin.co">Lukin Co.</a>
 </p>
 <br/>
 <br/>
+
+## Preview
+![](./assets/preview.gif)
+
+## License
+
+MIT
