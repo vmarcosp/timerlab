@@ -62,6 +62,7 @@ let forkMeText =
     color(white),
     color(Theme.Colors.primary),
     textDecoration(`none),
+    paddingVH(0.5->rem, zero),
   ]);
 
 let forkIcon = style([marginRight(1.->rem)]);
