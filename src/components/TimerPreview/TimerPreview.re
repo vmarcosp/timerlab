@@ -21,6 +21,13 @@ let make =
     },
     [|time|],
   );
+
+  let handleReset = () => {
+    timer.setTimer(time)
+    timer.pause()
+    toggleTimer(_ => false)
+  }
+
   TimerPreviewStyles.(
     <div className={wrapper(fullWidth, theme)}>
       <div className=header>
@@ -32,7 +39,7 @@ let make =
         <div>
           <Controls.Reset
             color={theme.primaryColor}
-            onClick={() => timer.setTimer(time)}
+            onClick={handleReset}
           />
           <Controls.TogglePlay
             status=timerStatus

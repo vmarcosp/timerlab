@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "bsb": "bsb -w",
     "bsb:build": "bsb -make-world",
-    "bsb:clean": "bsb -clean"
+    "bsb:clean": "bsb -clean",
+    "postinstall": "yarn bsb:build"
   },
   "eslintConfig": {
     "extends": "react-app"
