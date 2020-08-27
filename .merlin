@@ -1,22 +1,22 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
 FLG -open Timerlab
-FLG -ppx /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/ppx
-FLG -ppx '/Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/darwin/bsc.exe -as-ppx -bs-jsx 3'
-S /Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/bs-platform/lib/ocaml
+FLG -ppx /Users/mendrone/Code/lukin/timerlab/node_modules/re-formality/ppx
+FLG -ppx '/Users/mendrone/Code/lukin/timerlab/node_modules/bs-platform/darwin/bsc.exe -as-ppx -bs-jsx 3'
+S /Users/mendrone/Code/lukin/timerlab/node_modules/bs-platform/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/bs-platform/lib/ocaml
 FLG -open Belt
 FLG -w +a-4-9-20-40-41-42-50-61-102-44-40-42-61
-S /Users/vmarcosp/Projects/timerlab/node_modules/reason-react/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/reason-react/lib/ocaml
-S /Users/vmarcosp/Projects/timerlab/node_modules/bs-css/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/bs-css/lib/ocaml
-S /Users/vmarcosp/Projects/timerlab/node_modules/bs-css-emotion/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/bs-css-emotion/lib/ocaml
-S /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/re-formality/lib/ocaml
-S /Users/vmarcosp/Projects/timerlab/node_modules/bs-webapi/lib/ocaml
-B /Users/vmarcosp/Projects/timerlab/node_modules/bs-webapi/lib/ocaml
+S /Users/mendrone/Code/lukin/timerlab/node_modules/reason-react/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/reason-react/lib/ocaml
+S /Users/mendrone/Code/lukin/timerlab/node_modules/bs-css/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/bs-css/lib/ocaml
+S /Users/mendrone/Code/lukin/timerlab/node_modules/bs-css-emotion/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/bs-css-emotion/lib/ocaml
+S /Users/mendrone/Code/lukin/timerlab/node_modules/re-formality/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/re-formality/lib/ocaml
+S /Users/mendrone/Code/lukin/timerlab/node_modules/bs-webapi/lib/ocaml
+B /Users/mendrone/Code/lukin/timerlab/node_modules/bs-webapi/lib/ocaml
 S src
 B lib/bs/src
 S src/bindings
