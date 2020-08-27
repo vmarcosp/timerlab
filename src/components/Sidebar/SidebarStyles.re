@@ -53,3 +53,15 @@ let footer =
 
 let buttonsContainer =
   style([display(`flex), fullWidth, marginBottom(1.->rem)]);
+
+let forkMeText =
+  style([
+    fontSize(0.95->rem),
+    display(`flex),
+    alignItems(`center),
+    color(white),
+    color(Theme.Colors.primary),
+    textDecoration(`none),
+  ]);
+
+let forkIcon = style([marginRight(1.->rem)]);
