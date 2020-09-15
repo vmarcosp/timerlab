@@ -3,12 +3,25 @@ open TimerTypes;
 let darkThemeId = ID.generate();
 let cleanThemeId = ID.generate();
 
-let initialConfig: SidebarForm.output = {
+let baseConfig: SidebarForm.output = {
   title: {j|Some title|j},
   description: "Some description",
   time: "05:00",
   theme: cleanThemeId,
 };
+
+let initialConfig =
+  switch (SidebarForm.Storage.get()) {
+  | None => baseConfig
+  | Some(Ok(config)) => config
+  | Some(Error(error)) =>
+    [%log.error
+      "Storage#key: " ++ SidebarForm.Storage.key;
+      ("Parsing error", error)
+    ];
+
+    baseConfig;
+  };
 
 let cleanTheme = {
   id: cleanThemeId,
