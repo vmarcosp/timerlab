@@ -19,23 +19,19 @@
   "namespace": true,
   "bs-dependencies": [
     "reason-react",
+    "res-logger",
     "bs-css",
     "bs-css-emotion",
     "re-formality",
-    "bs-webapi"
+    "bs-webapi",
+    "decco"
   ],
   "bs-dev-dependencies": [],
-  "ppx-flags": [
-    "re-formality/ppx"
-  ],
+  "ppx-flags": ["res-logger/ppx", "re-formality/ppx", "decco/ppx"],
   "refmt": 3,
   "warnings": {
     "error": "+5",
     "number": "-44"
   },
-  "bsc-flags": [
-    "-bs-super-errors",
-    "-bs-no-version-header",
-    "-open Belt"
-  ]
+  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header", "-open Belt"]
 }

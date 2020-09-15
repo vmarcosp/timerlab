@@ -1,4 +1,5 @@
 include [%form
+          [@decco]
           type input = {
             title: string,
             description: string,
@@ -19,7 +20,30 @@ include [%form
 
 type submissionForm = Formality.submissionCallbacks(input, submissionError);
 
-let handleChange = Form.handleChange;
+module Storage = {
+  open Dom.Storage;
+
+  let key = "SidebarForm:state";
+
+  let get = () =>
+    Option.map(localStorage |> getItem(key), value =>
+      value |> Js.Json.parseExn |> input_decode
+    );
+
+  let update = (state: input) => {
+    input_encode(state) |> Js.Json.stringify |> setItem(key, _, localStorage);
+
+    state;
+  };
+};
+
+let handleChange = (updater, callback, event) => {
+  Form.handleChange(
+    updater,
+    (input: input, value) => {callback(input, value) |> Storage.update},
+    event,
+  );
+};
 
 let updateTitle = form =>
   handleChange(form.updateTitle, (input: input, title) => {...input, title});
