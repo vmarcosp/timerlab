@@ -1,10 +1,10 @@
 open TimerTypes;
 
-let darkThemeId = ID.generate();
-let cleanThemeId = ID.generate();
+let darkThemeId = "wz2o9z7-7h4vzhz";
+let cleanThemeId = "9rp3ltp-o8g9nqu";
 
 let baseConfig: SidebarForm.output = {
-  title: {j|Some title|j},
+  title: "Some title",
   description: "Some description",
   time: "05:00",
   theme: cleanThemeId,
@@ -23,30 +23,32 @@ let initialConfig =
     baseConfig;
   };
 
-let cleanTheme = {
-  id: cleanThemeId,
-  name: "Timerlab",
-  primaryColor: Theme.Colors.(primaryRaw->toHex),
-  secondaryColor: Theme.Colors.(backgroundRaw->toHex),
-  background: Color("#fff"),
-  default: true,
-  overlayColor: "",
-  opacity: 0.0,
-};
+let cleanTheme =
+  Theme.Colors.{
+    id: cleanThemeId,
+    name: "Timerlab",
+    primaryColor: primaryRaw->toHex,
+    secondaryColor: backgroundRaw->toHex,
+    background: Color("#fff"),
+    default: true,
+    overlayColor: "",
+    opacity: 0.0,
+  };
 
-let darkTheme = {
-  id: darkThemeId,
-  name: "Timerlab Dark",
-  primaryColor: Theme.Colors.(primaryRaw->toHex),
-  secondaryColor: "#FFF",
-  background: Color(Theme.Colors.(backgroundRaw->toHex)),
-  default: true,
-  overlayColor: "",
-  opacity: 0.0,
-};
+let darkTheme =
+  Theme.Colors.{
+    id: darkThemeId,
+    name: "Timerlab Dark",
+    primaryColor: primaryRaw->toHex,
+    secondaryColor: "#FFF",
+    background: backgroundRaw->toHex->Color,
+    default: true,
+    overlayColor: "",
+    opacity: 0.0,
+  };
 
 let lukinCleanTheme = {
-  id: ID.generate(),
+  id: "dyorwgn-3eoihsl",
   name: "Lukin",
   primaryColor: "#f36",
   secondaryColor: "#00000",
@@ -57,7 +59,7 @@ let lukinCleanTheme = {
 };
 
 let lukinDarkTheme = {
-  id: ID.generate(),
+  id: "sr8akgy-3bibn4x",
   name: "Lukin Dark",
   primaryColor: "#f36",
   secondaryColor: "#fff",
