@@ -5,7 +5,7 @@
 <p align="center">
    <a target="_blank" href="https://timerlab.lukin.co">Site</a> • 
    <a href="#preview">Preview</a> •
-   <a href="#preview">Setup</a> •
+   <a href="#setup">Setup</a> •
    <a href="#license">License</a> •
    <a href="https://github.com/lukinco/timerlab/blob/master/CONTRIBUTING.md">Contributing</a> •
    <a target="_blank" href="https://lukin.co">Lukin Co.</a>
