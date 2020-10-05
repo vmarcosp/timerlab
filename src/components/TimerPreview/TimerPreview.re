@@ -12,6 +12,7 @@ let make =
   let (timerStatus, toggleTimer) = React.useState(_ => false);
 
   let UseTimerHook.{minutes, seconds} = timer;
+  let isToggleDisabled = minutes === "00" && seconds === "00";
 
   React.useEffect1(
     () => {
@@ -26,6 +27,14 @@ let make =
     timer.setTimer(time)
     timer.pause()
     toggleTimer(_ => false)
+  }
+
+  let onStart = () => {
+    if (isToggleDisabled) {
+      toggleTimer(_ => false)
+    } else {
+      timer.start()
+    }
   }
 
   TimerPreviewStyles.(
@@ -46,7 +55,8 @@ let make =
             color={theme.primaryColor}
             toggleTimer
             onPause={timer.pause}
-            onPlay={timer.start}
+            onPlay=onStart
+            disabled=isToggleDisabled
           />
         </div>
       </div>

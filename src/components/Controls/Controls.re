@@ -9,6 +9,7 @@ let button =
       background(transparent),
       cursor(pointer),
       selector("&:nth-child(2)", [marginLeft(1.->rem)]),
+      selector(":disabled", [opacity(0.5)])
     ])
   );
 
@@ -23,13 +24,14 @@ let icon = isOpen =>
 
 module TogglePlay = {
   [@react.component]
-  let make = (~onPause, ~onPlay, ~color, ~status, ~toggleTimer) => {
+  let make = (~onPause, ~onPlay, ~color, ~status, ~toggleTimer, ~disabled) => {
     <button
       onClick={_ => {
         toggleTimer(_ => !status);
         status ? onPause() : onPlay();
       }}
-      className=button>
+      className=button
+      disabled=disabled>
       {status ? <PauseIcon color /> : <PlayIcon color />}
     </button>;
   };
