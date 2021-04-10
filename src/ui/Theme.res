@@ -10,7 +10,7 @@ module Colors = {
 }
 
 module Fonts = {
-  let text = Css.fontFamily(#custom(`'Poppins', sans-serif`))
+  let text = CssJs.fontFamily(#custom(`'Poppins', sans-serif`))
 }
 
 let sidebarWidth = 350->Css.px

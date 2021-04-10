@@ -1,18 +1,21 @@
 module Styles = {
-  open Css
+  open CssJs
   open CssHelpers
+
   let getColor = x =>
     switch x {
     | #primary => Theme.Colors.primary
     | #default => transparent
     }
+
   let getHoverColor = x =>
     switch x {
     | #primary => "C02A60"->hex
     | #default => rgba(69, 48, 82, #num(0.16))
     }
+
   let button = (~variant, ~block) =>
-    style(list{
+    style(.[
       background(getColor(variant)),
       noBorder,
       noOutline,
@@ -24,8 +27,8 @@ module Styles = {
       Theme.Fonts.text,
       fontSize(1.->rem),
       transitionDuration(300),
-      hover(list{background(getHoverColor(variant))}),
-    })
+      hover([background(getHoverColor(variant))]),
+    ])
 }
 
 type variant = [#primary | #default]

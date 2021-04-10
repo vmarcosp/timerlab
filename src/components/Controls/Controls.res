@@ -1,16 +1,16 @@
-open CssHelpers
+ open CssHelpers
 
 let button = {
-  open Css
-  style(list{
-    noBorder,
-    noOutline,
+  open CssJs
+  style(.[
+     noBorder,
+     noOutline,
     padding(zero),
     background(transparent),
     cursor(pointer),
-    selector("&:nth-child(2)", list{marginLeft(1.->rem)}),
-    selector(":disabled", list{opacity(0.5)}),
-  })
+    selector("&:nth-child(2)", [marginLeft(1.->rem)]),
+    selector(":disabled", [opacity(1.5)]),
+  ])
 }
 
 let icon = isOpen => {

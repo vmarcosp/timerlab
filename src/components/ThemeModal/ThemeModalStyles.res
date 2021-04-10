@@ -1,3 +1,3 @@
-open Css
+open CssJs
 
-let colors = style(list{display(#flex), selector("> *:nth-child(1)", list{marginRight(1.->rem)})})
+let colors = style(.[display(#flex), selector("> *:nth-child(1)", [marginRight(1.->rem)])])

@@ -1,10 +1,10 @@
 let link = {
-  open Css
-  style(list{
+  open CssJs
+  style(.[
     color(Theme.Colors.primary),
     textDecoration(#none),
     position(relative),
-    after(list{
+    after([
       contentRule(#text(" ")),
       width(100.->pct),
       height(2->px),
@@ -14,9 +14,9 @@ let link = {
       left(zero),
       transform(scale(0., 0.)),
       transitionDuration(300),
-    }),
-    hover(list{after(list{transform(scale(1., 1.))})}),
-  })
+    ]),
+    hover([after([transform(scale(1., 1.))])]),
+  ])
 }
 
 @react.component

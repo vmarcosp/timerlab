@@ -1,16 +1,16 @@
-open Css
-open CssHelpers
+open CssJs
+ open CssHelpers
 
 let addIcon = Helpers.\"import"("./add.svg")
 let editIcon = Helpers.\"import"("./edit.svg")
 
 let button = textColor =>
-  style(list{
+  style(.[
     fontSize(1.->rem),
     color(textColor),
-    Theme.Fonts.text,
-    noOutline,
-    noBorder,
+     Theme.Fonts.text,
+     noOutline,
+      noBorder,
     background(transparent),
     padding(zero),
     margin(zero),
@@ -19,10 +19,10 @@ let button = textColor =>
     display(#flex),
     alignItems(center),
     marginLeft(1.->rem),
-    selector("img", list{marginRight(0.75->rem)}),
-  })
+    selector("img", [marginRight(0.75->rem)]),
+  ])
 
-let wrapper = style(list{display(#flex), justifyContent(flexEnd)})
+let wrapper = style(.[display(#flex), justifyContent(flexEnd)])
 
 module Add = {
   @react.component

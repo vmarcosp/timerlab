@@ -1,8 +1,18 @@
-open Css
-open CssHelpers
+open CssJs
+ open CssHelpers
 
-let rangeLabel = style(list{fontSize(0.85->rem), Theme.Fonts.text, color(white), display(block)})
+let rangeLabel = style(.[
+  fontSize(0.85->rem),
+   Theme.Fonts.text,
+  color(white),
+  display(block),
+])
 
-let input = style(list{fullWidth})
+let input = style(.[ fullWidth
+])
 
-let rangeValue = style(list{Theme.Fonts.text, color(Theme.Colors.primary), textAlign(#right)})
+let rangeValue = style(.[
+   Theme.Fonts.text,
+  color(Theme.Colors.primary),
+  textAlign(#right),
+])

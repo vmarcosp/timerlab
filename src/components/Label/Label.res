@@ -1,12 +1,12 @@
 let label = {
-  open Css
-  style(list{
+  open CssJs
+  style(.[
     fontSize(0.85->rem),
-    Theme.Fonts.text,
+     Theme.Fonts.text,
     color(white),
     marginBottom(0.5->rem),
     display(block),
-  })
+  ])
 }
 
 @react.component

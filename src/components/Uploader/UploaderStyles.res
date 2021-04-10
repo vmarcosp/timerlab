@@ -1,9 +1,9 @@
-open Css
-open CssHelpers
+open CssJs
+ open CssHelpers
 
 let removeIcon = Helpers.\"import"("./remove.svg")
 
-let wrapper = style(list{
+let wrapper = style(.[
   border(2->px, dashed, "351D43"->hex),
   display(#flex),
   flexDirection(column),
@@ -11,21 +11,21 @@ let wrapper = style(list{
   padding(1.5->rem),
   cursor(pointer),
   transitionDuration(400),
-  selector("input", list{display(none)}),
-  hover(list{borderColor(Theme.Colors.primary), selector("*", list{color(Theme.Colors.primary)})}),
-})
+  selector("input", [display(none)]),
+  hover([borderColor(Theme.Colors.primary), selector("*", [color(Theme.Colors.primary)])]),
+])
 
-let label = style(list{
-  Theme.Fonts.text,
+let label = style(.[
+   Theme.Fonts.text,
   color("6F5D7A"->hex),
   transitionDuration(400),
   margin(zero),
   marginTop(1.->rem),
-})
+])
 
-let removeButton = style(list{
-  noBorder,
-  noOutline,
+let removeButton = style(.[
+    noBorder,
+    noOutline,
   padding(zero),
   margin(zero),
   position(absolute),
@@ -37,21 +37,24 @@ let removeButton = style(list{
   borderRadius(50.->pct),
   background(Theme.Colors.primary),
   transitionDuration(400),
-  after(list{contentRule(#url(removeIcon)), width(10->px), height(10->px)}),
-})
+  after([contentRule(#url(removeIcon)), width(10->px), height(10->px)]),
+])
 
 let buttonSelector = j`.$(removeButton)`
 
-let previewContainer = style(list{
+let previewContainer = style(.[
   position(relative),
   width(124->px),
   marginTop(0.25->rem),
-  selector(buttonSelector, list{opacity(0.)}),
-  hover(list{selector(buttonSelector, list{opacity(1.)})}),
-})
+  selector(buttonSelector, [opacity(0.)]),
+  hover([selector(buttonSelector, [opacity(1.)])]),
+])
 
-let preview = style(list{maxWidth(124->px), borderRadius(4->px)})
+let preview = style(.[maxWidth(124->px), borderRadius(4->px)])
 
-let controls = style(list{display(#flex)})
+let controls = style(.[display(#flex)])
 
-let imageOptions = style(list{fullWidth, marginLeft(1.5->rem)})
+let imageOptions = style(.[
+   fullWidth,
+  marginLeft(1.5->rem),
+])
