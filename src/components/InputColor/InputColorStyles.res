@@ -1,15 +1,14 @@
 open CssJs
- open CssHelpers
+open CssHelpers
 
-let wrapper = style(.[//Replace fullWidth
-])
+let wrapper = style(.[fullWidth])
 
 let input = style(.[
-   fullWidth,
+  fullWidth,
   background(Theme.Colors.shape),
-   noBorder,
-   noOutline,
-   Theme.Fonts.text,
+  noBorder,
+  noOutline,
+  Theme.Fonts.text,
   color(white),
   fontSize(1.->rem),
   padding(0.75->rem),

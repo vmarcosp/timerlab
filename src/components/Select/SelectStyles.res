@@ -1,5 +1,5 @@
 open CssJs
- open CssHelpers
+open CssHelpers
 let icon = Helpers.\"import"("./arrow-icon.svg")
 
 let wrapper = style(.[
@@ -19,12 +19,11 @@ let wrapper = style(.[
 ])
 
 let select = style(.[
-  // CSS_HEPLERS fullWidth,
+  fullWidth,
   background(Theme.Colors.shape),
-  // CSS_HEPLERS fullWidth
-   noBorder,
-   noOutline,
-    Theme.Fonts.text,
+  noBorder,
+  noOutline,
+  Theme.Fonts.text,
   color(white),
   fontSize(1.->rem),
   borderRadius(2->px),
@@ -37,7 +36,7 @@ let select = style(.[
 
 let label = style(.[
   fontSize(0.85->rem),
-   Theme.Fonts.text,
+  Theme.Fonts.text,
   color(white),
   marginBottom(0.5->rem),
   display(block),
