@@ -1,0 +1,47 @@
+open CssHelpers
+
+let button = {
+  open Css
+  style(list{
+    noBorder,
+    noOutline,
+    padding(zero),
+    background(transparent),
+    cursor(pointer),
+    selector("&:nth-child(2)", list{marginLeft(1.->rem)}),
+    selector(":disabled", list{opacity(0.5)}),
+  })
+}
+
+let icon = isOpen => {
+  open Css
+  style(list{transform(#rotate(#deg(isOpen ? 0. : 180.))), transitionDuration(300)})
+}
+
+module TogglePlay = {
+  @react.component
+  let make = (~onPause, ~onPlay, ~color, ~status, ~toggleTimer, ~disabled) =>
+    <button
+      onClick={_ => {
+        toggleTimer(_ => !status)
+        status ? onPause() : onPlay()
+      }}
+      className=button
+      disabled>
+      {status ? <PauseIcon color /> : <PlayIcon color />}
+    </button>
+}
+
+module Reset = {
+  @react.component
+  let make = (~onClick, ~color) =>
+    <button onClick={_ => onClick()} className=button> <ResetIcon color /> </button>
+}
+
+module ToggleSidebar = {
+  @react.component
+  let make = (~onClick, ~isOpen, ~color) =>
+    <button onClick={_ => onClick()} className=button>
+      <ToggleIcon color className={icon(isOpen)} />
+    </button>
+}
