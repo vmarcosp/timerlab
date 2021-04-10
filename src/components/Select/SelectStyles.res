@@ -1,6 +1,6 @@
 open CssJs
 open CssHelpers
-let icon = Helpers.\"import"("./arrow-icon.svg")
+let icon = Helpers.import_("./arrow-icon.svg")
 
 let wrapper = style(.[
   position(relative),

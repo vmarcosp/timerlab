@@ -1,4 +1,4 @@
-let icon = Helpers.\"import"("./upload-icon.svg")
+let icon = Helpers.import_("./upload-icon.svg")
 
 @react.component
 let make = (~onChange, ~value, ~onOpacityChange, ~onOverlayChange, ~opacity, ~overlayColor) => {

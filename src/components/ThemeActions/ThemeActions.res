@@ -1,16 +1,16 @@
 open CssJs
- open CssHelpers
+open CssHelpers
 
-let addIcon = Helpers.\"import"("./add.svg")
-let editIcon = Helpers.\"import"("./edit.svg")
+let addIcon = Helpers.import_("./add.svg")
+let editIcon = Helpers.import_("./edit.svg")
 
 let button = textColor =>
   style(.[
     fontSize(1.->rem),
     color(textColor),
-     Theme.Fonts.text,
-     noOutline,
-      noBorder,
+    Theme.Fonts.text,
+    noOutline,
+    noBorder,
     background(transparent),
     padding(zero),
     margin(zero),

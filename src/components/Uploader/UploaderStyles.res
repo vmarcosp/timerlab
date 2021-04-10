@@ -1,7 +1,7 @@
 open CssJs
  open CssHelpers
 
-let removeIcon = Helpers.\"import"("./remove.svg")
+let removeIcon = Helpers.import_("./remove.svg")
 
 let wrapper = style(.[
   border(2->px, dashed, "351D43"->hex),
