@@ -18,7 +18,7 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "reason-react",
+    "@rescript/react",
     "res-logger",
     "bs-css",
     "bs-css-emotion",

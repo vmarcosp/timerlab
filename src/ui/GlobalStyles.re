@@ -1,5 +1,6 @@
 open Css;
-Helpers.import("./reset.css");
+
+Helpers.require("./reset.css");
 
 let add = () => {
   global(

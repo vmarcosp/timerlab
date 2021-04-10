@@ -8,7 +8,7 @@ module Styles = {
   let getHoverColor =
     fun
     | `primary => "C02A60"->hex
-    | `default => rgba(69, 48, 82, 0.16);
+    | `default => rgba(69, 48, 82, `num(0.16));
   let button = (~variant, ~block) =>
     style([
       background(getColor(variant)),

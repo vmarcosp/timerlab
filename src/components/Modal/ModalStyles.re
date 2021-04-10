@@ -15,7 +15,7 @@ let fadeIn = [
 let wrapper = visible => {
   let base = [
     position(fixed),
-    background(rgba(88, 63, 103, 0.68)),
+    background(rgba(88, 63, 103, `num(0.68))),
     fullHeight,
     fullWidth,
     top(zero),
